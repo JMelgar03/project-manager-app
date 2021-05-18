@@ -1,0 +1,10 @@
+.projectManager__logo{
+    height:50%;
+    width: 50%;
+}
+
+.projectManager__margin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

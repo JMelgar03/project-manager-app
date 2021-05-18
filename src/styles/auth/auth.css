@@ -18,10 +18,101 @@
     box-shadow: 0px 3px rgb(105, 104, 104);
     border-radius: 2px;
     padding: 20px;
-    width: 250px;
+    width: 350px;
 }
 
 .btn{
     margin-top: 5px;
     width: 100%;
+}
+
+.auth__input{
+    color: grey;
+    border: 0px;
+    border-bottom: 1px solid grey;
+    font-size: 16px;
+    margin-bottom: 10px;
+    height: 20px;
+    width: 100%;
+
+    transition: border-bottom .3s ease;
+    
+}
+
+.auth__input-text:focus{
+    border-bottom: 1px solid grey;
+        outline: none;
+}
+
+.auth__social-networks{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.google-btn {
+    cursor: pointer;
+    margin-top: 5px;
+    width: 100%;
+    height: 42px;
+    background-color: blue;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+
+    transition: box-shadow .3s ease;
+}
+    .google-icon-wrapper {
+        position: absolute;
+        margin-top: 1px;
+        margin-left: 1px;
+        
+        width: 40px;
+        height: 40px;
+        border-radius: 2px;
+        background-color: white;
+    }
+    .google-icon {
+        position: absolute;
+        margin-top: 11px;
+        margin-left: 11px;
+        width: 18px;
+        height: 18px;
+        
+    }
+    .btn-text {
+        float: right;
+        margin: 8px 60px 0 0;
+        color: white;
+        font-size: 16px;
+        letter-spacing: 0.2px;
+        
+    
+}
+
+.auth__btn-google:hover{
+    box-shadow: 0 0 6px blue;
+}
+
+.aut__btn-google-active:active{
+    background: blue;
+}
+
+.auth__text-button-google{
+margin-left: 0.5px;
+}
+
+
+.link{
+    color:grey;
+    text-decoration: none;
+
+    
+}
+
+.link-hover:hover {
+    text-decoration: underline;
 }
