@@ -1,4 +1,5 @@
 import React from 'react';
+import { Modal } from '../ui/Modal';
 import { Projects } from './Projects';
 
 const projects = [
@@ -31,6 +32,8 @@ const projects = [
 export const ProjectsScreen = () => {
     return (
         <div className="projects-backgorund">
+            
+            <Modal />
 
             <div className="row">
 
@@ -41,10 +44,11 @@ export const ProjectsScreen = () => {
                             <h5 className="card-title">Crear Un Proyecto</h5>
 
                             <p className="card-text">.............</p>
-                            <a href="#" className="btn btn-info">
-                            <i class="fas fa-folder-plus">Create New Project</i>
+                            <button className="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                            
+                                <i class="fas fa-folder-plus">Create New Project</i>
                                  
-                                </a>
+                            </button>
                     </div>
             </div>
 

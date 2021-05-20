@@ -5,6 +5,7 @@ export const Projects = ({projectName, description, progress}) => {
 
     return (
         <>          
+            
             <div className="card  m-2 col-sm-12 col-md-3" >
                 <div style={{
                      display: 'flex',
