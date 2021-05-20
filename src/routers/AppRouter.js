@@ -3,17 +3,16 @@ import {firebase} from '../firebase/firebase-config';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link,
     Redirect
   } from "react-router-dom";
 
-import { ProjectManagerScreen } from '../components/project-manager/ProjectManagerScreen';
+
 import { AuthRouter } from './AuthRouter';
 import { useDispatch } from 'react-redux';
 import { login } from '../actions/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
+import { ProjectRouter } from './ProjectRouter';
 
 export const AppRouter = () => {
 
@@ -47,9 +46,10 @@ export const AppRouter = () => {
            <Switch>
                <PublicRoute isLogged={isLogged}  path="/auth" component={AuthRouter} />
                
-               <PrivateRoute exact isLogged={isLogged} path="/" component={ProjectManagerScreen} />
+               <PrivateRoute  isLogged={isLogged} path="/home" component={ProjectRouter} />
+               
 
-               <Redirect to="/" />
+               <Redirect to="/home" />
            </Switch>
         </Router>
     )

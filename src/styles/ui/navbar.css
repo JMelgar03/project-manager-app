@@ -1,0 +1,16 @@
+.navbar-logo{
+    height:50px;
+    width: 50px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.navbar-form{
+    display: flex;
+    justify-content: end;
+}
+
+.navbar-background{
+    background-color: #77838D;
+    color: white;
+}

@@ -1,0 +1,25 @@
+.card-project-description{
+    height: 48px;
+    width: 100%;
+    
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.projects-backgorund{
+    background-color: rgb(182, 184, 185);
+    height: 100vh;
+}
+
+.progres-style{
+    width: 50%
+}
+
+.card-project-image{
+    height: 150px;
+    width: 180px;
+}
+
+.card-new-entry{
+    height: 50%;
+}
