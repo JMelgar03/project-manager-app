@@ -63,7 +63,7 @@ export const LoginScreen = () => {
                 <img className="projectManager__logo " src="../JProjectManager-logo.png" alt="Logo" />
                 </div>
                 
-            <h2 className="auth__title">Login</h2>
+            <h2 className="auth__title">Login to continue</h2>
             <form >
                 <input
                 className=" auth__input auth__input-text"
@@ -79,7 +79,7 @@ export const LoginScreen = () => {
                 className=" auth__input auth__input-text"
                 type="password"
                 name="password"
-                placeholder="password"
+                placeholder="Password"
                 value={password}
                 onChange={handleInputChange}
                  />

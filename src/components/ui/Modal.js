@@ -6,15 +6,22 @@ export const Modal = () => {
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 className="modal-title" id="exampleModalLabel">Create New Project</h5>
+                        
                 </div>
             <div className="modal-body">
-                ...
+                <form>
+                    <input 
+                    className="form-control"
+                    type="text" 
+                    placeholder="Project Name"
+                    
+                    />
+                </form>
         </div>
       <div className="modal-footer">
         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary">Save changes</button>
+        <button type="button" className="btn btn-info">Save changes</button>
       </div>
     </div>
   </div>

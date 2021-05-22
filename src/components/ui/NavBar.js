@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { startlogOut } from '../../actions/auth';
 
@@ -9,6 +9,7 @@ import { startlogOut } from '../../actions/auth';
 export const NavBar = () => {
 
    const dispatch = useDispatch();
+   const {name} = useSelector(state => state.auth)
 
 
     const handleLogout = ()=>{
@@ -23,35 +24,61 @@ export const NavBar = () => {
                 </button>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                 
-                <img className="navbar-logo " src="../JProjectManager-logo.png" alt="Logo" />
+                <img className="navbar-logo " src="../Logo-white-transparent.PNG" alt="Logo" />
                
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
           
           <Link className="nav-link active" to="/home/projects" aria-current="page" >
               
-          <i class="fas fa-home"></i>Home
+          <i className="fas fa-home fa-2x"></i>
             </Link>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#" onClick={handleLogout}>Logout</a>
-        </li>
+        
         <li className="nav-item">
           
           <Link className="nav-link " to="/home/manage" tabIndex="-1" aria-disabled="true" >
                    Manage
             </Link>
         </li>
+
+        
+
+      
+
+
+
       </ul>
     </div>
-    <form className="d-flex ml-5 navbar-form">
+    <form className="d-flex  navbar-form">
                 <input className="form-control mt-2" type="search" placeholder="Search" aria-label="Search"/>
                 <button className="btn btn-outline-info ml-2" type="submit">
                     
-                <i class="fas fa-search"></i>
+                    <i className="fas fa-search"></i>
                     
-                    </button>
+                </button>
+
+                <div class=" dropdown nav-item">
+                    <a class="dropdown-toggle nav-link navbar-user-name navbar-hover" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span className="fas fa-user"> </span> {name}
+                    </a>
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li><button className="dropdown-item" type="button">Action</button></li>
+                        <li >
+                            <button className="dropdown-item fas fa-sign-out-alt "  onClick={handleLogout}><span className="navbar-font"> Logout</span></button>
+                     
+                        </li>
+                    </ul>
+                </div>
+        
             </form>
+
+           
+
+          
+           
+
+
   </div>
 </nav>
     )
