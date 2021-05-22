@@ -83,7 +83,7 @@ export const RegisterScreen = () => {
 
     return (
         <div className="auth__main">
-        <div className="auth__box-container">
+        <div className="auth__box-container animate__animated animate__fadeIn">
             <div className="projectManager__margin">
             <img className="projectManager__logo " src="../JProjectManager-logo.png" alt="Logo" />
             </div>

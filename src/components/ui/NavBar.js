@@ -42,12 +42,6 @@ export const NavBar = () => {
             </Link>
         </li>
 
-        
-
-      
-
-
-
       </ul>
     </div>
     <form className="d-flex  navbar-form">
@@ -65,7 +59,7 @@ export const NavBar = () => {
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <li><button className="dropdown-item" type="button">Action</button></li>
                         <li >
-                            <button className="dropdown-item fas fa-sign-out-alt "  onClick={handleLogout}><span className="navbar-font"> Logout</span></button>
+                            <button className="dropdown-item fas fa-sign-out-alt " type="button"  onClick={handleLogout}><span className="navbar-font"> Logout</span></button>
                      
                         </li>
                     </ul>

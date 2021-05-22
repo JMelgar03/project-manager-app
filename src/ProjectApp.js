@@ -6,6 +6,9 @@ import './styles/auth/auth.css';
 import './styles/projectManager/logo.css';
 import './styles/projectManager/projects-screen.css';
 import './styles/ui/navbar.css';
+import './styles/ui/modal.css';
+import './styles/projectManager/project-manager-screen.css';
+
 export const ProjectApp = () => {
     return (
         <div>

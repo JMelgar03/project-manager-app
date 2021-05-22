@@ -1,0 +1,14 @@
+.modal-border-radius{
+    border-radius: 20px;
+    background-color: rgb(219, 222, 223) ;
+}
+
+.modal-input-colors{
+    background-color:rgb(219, 222, 223) ;
+    
+}
+
+.modal-btn-size{
+    width: 25%;
+    margin: 10px;
+}

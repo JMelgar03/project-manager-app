@@ -6,7 +6,7 @@ export const Projects = ({projectName, description, progress, imgBackground}) =>
     return (
         <>          
 
-            <div className="card  m-2 col-sm-12 col-md-3 cards-border card-project-cursor" style={{
+            <div className="card  m-2 col-sm-12 col-md-3 cards-border card-project-cursor animate__animated animate__zoomIn" style={{
                     backgroundImage: `url(${imgBackground})`,
                     backgroundPosition: 'center',}} 
             >

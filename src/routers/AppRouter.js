@@ -36,7 +36,13 @@ export const AppRouter = () => {
 
     if(check){
         return(
-            <h1>ESPERE...</h1>
+            <div className="wait-screen">
+                
+                <span><i class="fas fa-spinner fa-2x"> </i> </span> 
+                <span> <h2> checking please wait...</h2></span>
+
+
+            </div>
         )
     }
 

@@ -81,7 +81,7 @@ export const ProjectsScreen = () => {
             <div className="row cards-screen-center">
 
 
-            <div className="card  m-2 col-sm-12 col-md-3 card-new-entry cards-border"  >
+            <div className="card  m-2 col-sm-12 col-md-3 card-new-entry cards-border animate__animated animate__zoomIn"  >
                     <div className="card-body card-new-entry-center">
                        
                             <h5 className="card-title"></h5>
