@@ -52,8 +52,8 @@ export const NavBar = () => {
                     
                 </button>
 
-                <div class=" dropdown nav-item">
-                    <a class="dropdown-toggle nav-link navbar-user-name navbar-hover" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                <div className=" dropdown nav-item">
+                    <a className="dropdown-toggle nav-link navbar-user-name navbar-hover" href="#" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                         <span className="fas fa-user"> </span> {name}
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -66,12 +66,6 @@ export const NavBar = () => {
                 </div>
         
             </form>
-
-           
-
-          
-           
-
 
   </div>
 </nav>

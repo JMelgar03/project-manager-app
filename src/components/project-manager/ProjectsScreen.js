@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Modal } from '../ui/Modal';
 import { Projects } from './Projects';
 
@@ -9,9 +10,19 @@ const projects = [
         description: 'Sistema para facilitar la matricula de estudiantes.',
         startDate: new Date().getTime(),
         endDate: new Date().getTime(),
-        toDo:[{}],
-        doing:[{}],
-        done:[{}],
+        task:[{toDo:[{
+            id: 'zzzzzzz',
+            taksTitle:'Terminar Proyecto',
+            status:'ToDo'
+        }],
+        doing:[{
+
+        }],
+        done:[{
+            
+        }]
+        }]
+        ,
         progress:'50%',
         imgBackground:'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg'
     },
@@ -72,11 +83,30 @@ const projects = [
 
 ];
 
+
+
 export const ProjectsScreen = () => {
+
+    const {userEmailVerified} = useSelector(state => state.auth)
+
+   const handleResendEmailVerification =()=>{
+       console.log('Resend');
+   }
+
     return (
         <div className="projects-backgorund">
             
             <Modal />
+
+            {
+                !userEmailVerified
+                &&
+                <div className="alert alert-warning" role="alert">
+                Please reply to the verification email.
+                you did not receive it? <span className="resend-email" onClick={handleResendEmailVerification}>Resend</span>
+                </div>
+            }
+            
 
             <div className="row cards-screen-center">
 
@@ -84,7 +114,7 @@ export const ProjectsScreen = () => {
             <div className="card  m-2 col-sm-12 col-md-3 card-new-entry cards-border animate__animated animate__zoomIn"  >
                     <div className="card-body card-new-entry-center">
                        
-                            <h5 className="card-title"></h5>
+                           
 
                             
                             <button className="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" >

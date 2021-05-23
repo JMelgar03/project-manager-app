@@ -8,6 +8,7 @@ import './styles/projectManager/projects-screen.css';
 import './styles/ui/navbar.css';
 import './styles/ui/modal.css';
 import './styles/projectManager/project-manager-screen.css';
+import './styles/projectManager/task-card.css';
 
 export const ProjectApp = () => {
     return (

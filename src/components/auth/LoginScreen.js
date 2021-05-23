@@ -91,7 +91,7 @@ export const LoginScreen = () => {
                 }
 
             <button 
-            className=" auth__button-sign-in btn btn-primary "
+            className=" auth__button-sign-in btn btn-info "
             onClick={handleLogin}
             disabled={loading}
             >

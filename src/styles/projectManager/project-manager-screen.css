@@ -1,3 +1,28 @@
 .manager-card-width{
     width: 18rem;
 }
+
+.progressbar-project{
+    background-color: rgb(199, 196, 196);
+    height: 15px;
+    margin-bottom: 5px;
+}
+
+.progresbar-project-color{
+    background-color: rgb(97, 97, 97);
+}
+
+.transparent{
+    background-color: rgba(187, 187, 187, 0.3);
+}
+
+.background-project-manager{
+    height: 100vh;
+    width: 100vw;
+    padding-top: 5px;
+    background-color: rgb(27, 50, 51);
+}
+
+.title-white{
+    color: white;
+}

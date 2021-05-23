@@ -23,7 +23,7 @@ export const loginEmailAndPassword = (email, password) =>{
       dispatch(startUiLoading());
      firebase.auth().signInWithEmailAndPassword(email, password)
      .then( ({ user }) =>{
-      dispatch( login(user.uid, user.displayName) );
+      dispatch( login(user.uid, user.displayName, user.emailVerified) );
       dispatch(finishUiLoading());
      })
      .catch(e=>{
@@ -41,7 +41,8 @@ export const createUserEmailAndPassword = (name, lastname, email, password )=>{
       firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(async({user})=>{
           await user.updateProfile({displayName: `${name} ${lastname}`});
-          dispatch( login(user.uid, user.displayName) );
+          dispatch(sendVerificationEmail());
+          dispatch( login(user.uid, user.displayName, user.emailVerified) );
           dispatch(finishUiLoading());
       })
       .catch(e=>{
@@ -54,12 +55,22 @@ export const createUserEmailAndPassword = (name, lastname, email, password )=>{
 
 }
 
+export const sendVerificationEmail = ()=>{
+  return async(dispatch)=>{
+    dispatch(startUiLoading());
+    await firebase.auth().currentUser.sendEmailVerification();
 
-export const login = (uid, displayName)=>({
+  dispatch(finishUiLoading());
+  }
+}
+
+
+export const login = (uid, displayName, emailVerified)=>({
   type: types.login,
   payload: {
       uid,
-      displayName
+      displayName,
+      emailVerified
   }
 });
 

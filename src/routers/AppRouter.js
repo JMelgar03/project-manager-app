@@ -18,21 +18,26 @@ export const AppRouter = () => {
 
     const dispatch = useDispatch();
     const [check, setCheck] = useState(true);
-    const [isLogged, setisLogged] = useState(false);
+    const [isLoggedIn, setisLoggedIn] = useState(false);
+    
 
     useEffect(() => {
-        firebase.auth().onAuthStateChanged(( user )=>{
+        firebase.auth().onAuthStateChanged(async( user )=>{
+            
             if(user?.uid){
-                dispatch(login(user.uid, user.displayName));
-                setisLogged(true);
-            } else{
-                setisLogged(false);
+            
+                dispatch(login(user.uid, user.displayName, user.emailVerified));
+                setisLoggedIn(true);
+                
+            }
+            else{
+                setisLoggedIn(false);
             }
 
             setCheck(false);
         });
         
-    }, [dispatch, setCheck, setisLogged]);
+    }, [dispatch, setCheck, setisLoggedIn]);
 
     if(check){
         return(
@@ -50,12 +55,12 @@ export const AppRouter = () => {
     return (
         <Router>
            <Switch>
-               <PublicRoute isLogged={isLogged}  path="/auth" component={AuthRouter} />
+               <PublicRoute isLogged={isLoggedIn}  path="/auth" component={AuthRouter} />
                
-               <PrivateRoute  isLogged={isLogged} path="/home" component={ProjectRouter} />
+               <PrivateRoute  isLogged={isLoggedIn}  path="/home" component={ProjectRouter} />
                
 
-               <Redirect to="/home" />
+               <Redirect to="/auth/login" />
            </Switch>
         </Router>
     )

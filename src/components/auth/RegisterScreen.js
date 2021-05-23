@@ -145,7 +145,7 @@ export const RegisterScreen = () => {
             }
 
         <button 
-          className=" auth__button-sign-in btn btn-primary "
+          className=" auth__button-sign-in btn btn-info "
           disabled={loading}
           >
             Register

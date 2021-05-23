@@ -44,8 +44,13 @@ export const Modal = () => {
         </div>
       <div className="">
           
-        <button type="button" className="btn btn-secondary modal-btn-size" data-bs-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-info modal-btn-size">Save changes</button>
+        <button type="button" className="btn btn-secondary modal-btn-size"  data-bs-dismiss="modal">
+            <span><i className="fas fa-window-close"></i></span>
+        </button>
+
+        <button type="button" className="btn btn-info modal-btn-size">
+            <span><i className="fas fa-save"></i></span>
+        </button>
          
         
       </div>
