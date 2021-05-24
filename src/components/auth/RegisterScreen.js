@@ -144,6 +144,9 @@ export const RegisterScreen = () => {
             </div>)
             }
 
+            <p className="terms-and-condition-text">By clicking on the register button you accept the <Link className="link link-hover" to="/auth/terms">
+                terms and conditions</Link> for the use of this site.</p>
+
         <button 
           className=" auth__button-sign-in btn btn-info "
           disabled={loading}

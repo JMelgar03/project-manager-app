@@ -1,0 +1,11 @@
+.image-table-responsive{
+    width: 94px;
+    height: 53px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.image-focus:hover{
+   
+    background-color: #17a2b8;
+}

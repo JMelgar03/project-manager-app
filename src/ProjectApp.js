@@ -7,6 +7,7 @@ import './styles/projectManager/logo.css';
 import './styles/projectManager/projects-screen.css';
 import './styles/ui/navbar.css';
 import './styles/ui/modal.css';
+import './styles/ui/tableImage.css';
 import './styles/projectManager/project-manager-screen.css';
 import './styles/projectManager/task-card.css';
 

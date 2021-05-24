@@ -2,6 +2,11 @@ export const types = {
     login: '[Auth] Login',
     logout: '[Auth] Logout',
 
-    uiLoading: '[UI] Loading',
-    uiFinishLoading: '[UI] Finish Loading'
+    uiLoading: '[Ui] Loading',
+    uiFinishLoading: '[Ui] Finish Loading',
+
+    projectAddNew: '[Project] Add New',
+    projectSetActive: '[Project] Set Active',
+    projectSetDesactivate: '[Project] set Desactivate'
+
 }

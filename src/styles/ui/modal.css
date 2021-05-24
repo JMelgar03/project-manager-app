@@ -3,12 +3,27 @@
     background-color: rgb(219, 222, 223) ;
 }
 
-.modal-input-colors{
-    background-color:rgb(219, 222, 223) ;
+.modal-input-colors-none{
+    background-color: rgb(219, 222, 223) ;
     
+}
+
+.modal-input-colors{
+   
+    background-color:rgba(219, 222, 223,0.05) ;
+    color: white;
 }
 
 .modal-btn-size{
     width: 25%;
     margin: 10px;
+}
+
+.modal-container-image{
+    background-color: rgba(219, 222, 223,0.3) ;
+
+}
+
+.modal-title-user{
+    color: white;
 }

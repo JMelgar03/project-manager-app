@@ -1,3 +1,27 @@
 .task-card-width{
     width: 100%;
+    margin-bottom: 5px;
+}
+
+.task-card-btn-width{
+    width: 10%;
+}
+
+.task-card-div{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.task-card-btn-move{
+    margin: 1px;
+    padding: 1px;
+}
+
+.task-card-icon-color{
+    color: #17a2b8 ;
+
+}
+
+.task-card-height{
+    height: 80%;
 }
