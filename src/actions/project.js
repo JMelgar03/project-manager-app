@@ -8,4 +8,14 @@ export const setActiveProject = (project)=>({
 
 export const setDesactivateProject= () =>({
         type: types.projectSetDesactivate
+});
+
+export const projectAddNew = (project)=>({
+        type: types.projectAddNew,
+        payload: project
+});
+
+export const changeStatusCard = (project)=>({
+        type: types.projectChangeCard,
+        payload:project
 })

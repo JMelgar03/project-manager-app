@@ -7,6 +7,10 @@ export const types = {
 
     projectAddNew: '[Project] Add New',
     projectSetActive: '[Project] Set Active',
-    projectSetDesactivate: '[Project] set Desactivate'
+    projectSetDesactivate: '[Project] set Desactivate',
+    projectDelete: '[Project] Delete',
+    projectUpdate: '[Project] Update',
+
+    projectChangeCard: '[Project] Change Card'
 
 }

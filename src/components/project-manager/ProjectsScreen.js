@@ -1,6 +1,7 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
+import { setDesactivateProject } from '../../actions/project';
 
 import { Modal } from '../ui/Modal';
 import { Projects } from './Projects';
@@ -13,10 +14,17 @@ export const ProjectsScreen = () => {
 
     const {userEmailVerified} = useSelector(state => state.auth);
     const {projects, activeProject} = useSelector(state => state.project);
-
+    const dispatch = useDispatch();
    const handleResendEmailVerification =()=>{ //Pendiente de realizar...
        console.log('Resend');
    }
+
+   useEffect(() => {
+        dispatch(setDesactivateProject());
+       
+    }, [dispatch])
+
+     
 
 
     return (

@@ -17,7 +17,7 @@
 }
 
 .background-project-manager{
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     padding-top: 5px;
     background-color: rgb(16, 22, 71);
@@ -25,4 +25,11 @@
 
 .title-white{
     color: white;
+}
+
+.title-project{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -8,7 +8,7 @@ export const Projects = (project) => {
 
     const handleActiveProject = ()=>{
         dispatch(setActiveProject(project));
-        <Link to="/home/manage"></Link>
+        
     } 
     return (
         <>          
