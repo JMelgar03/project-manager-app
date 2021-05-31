@@ -120,7 +120,7 @@ export const projectReducer = (state= initialState, action) => {
                     ...state,
                     activeProject: null
                 }
-            case types.projectAddNew:
+            case types.projectCreate:
                 return{
                     ...state,
                     projects:[
@@ -129,11 +129,100 @@ export const projectReducer = (state= initialState, action) => {
                     ]
                 }
 
+                case types.projectUpdate:
+                    return{
+                        ...state,
+                        projects: state.projects.map(p=>(p.id === action.payload.id) ?action.payload :p),
+                        activeProject: action.payload 
+                    }
+
+
+                case types.projectDelete:
+                    return{
+                        ...state,
+                        projects: state.projects.filter(p=>(p.id !== action.payload)),
+                        activeProject: null
+                    }
+            
+                case types.projectCreateTask:
+                    return{
+                        ...state,
+                        projects:
+                            state.projects.map(p=> (p.id === action.payload.idProject)
+                            ?({
+                                ...p,
+                                task:[ ...p.task, action.payload.task],
+                                progress: action.payload.progress
+                            })
+                            :(p)
+                            )
+                        ,
+                        activeProject:{
+                            ...state.activeProject,
+                            task:[ ...state.activeProject.task, action.payload.task],
+                            progress: action.payload.progress
+                        }
+                    }
+
             case types.projectChangeCard:
                 return{
                     ...state,
-                    projects: state.projects.map(p => (p.id === action.payload.id) ?action.payload : p),
-                    activeProject: action.payload
+                    projects: state.projects.map(p => (p.id === action.payload.project.id) 
+                        ?{...p,
+                        task:action.payload.project.task,
+                        progress: action.payload.progress
+                } 
+                        : p),
+
+                    activeProject:{ ...action.payload.project,
+                        progress: action.payload.progress
+                    }
+                }
+
+
+                case types.projectEditTask:
+                   
+                    return{
+                        ...state,
+                        projects: state.projects.map(p => (p.id === action.payload.idProject) 
+                            ?{...p,
+                                task: p.task.map(t=>(t.id === action.payload.task.id)
+                                ?(
+                                   action.payload.task
+                                )
+                                :(
+                                    t
+                                )
+                            )}
+
+                            : p),
+    
+                        activeProject: {
+                            ...state.activeProject,
+                            task: state.activeProject.task.map(t=>(t.id === action.payload.task.id)
+                                                                    ?(action.payload.task)
+                                                                    : t
+                            )
+                        }
+                    }
+    
+
+            case types.projectDeleteTask:
+                return {
+                    ...state,
+                    
+                    projects:state.projects.map(p => ({
+                        ...p,
+                        task: p.task.filter(t=>(t.id !== action.payload.idTask)),
+                        progress: action.payload.progress
+                    }))
+                    
+                    ,
+                    
+                    activeProject:{ ...state.activeProject,
+                        task: state.activeProject.task.filter(ta=>(ta.id !== action.payload.idTask)),
+                        progress: action.payload.progress
+                    }
                 }
         
             default:

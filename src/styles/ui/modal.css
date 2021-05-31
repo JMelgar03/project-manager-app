@@ -27,3 +27,7 @@
 .modal-title-user{
     color: white;
 }
+
+.modal-textarea{
+    height: 25px;
+}

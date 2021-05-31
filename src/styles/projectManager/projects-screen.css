@@ -1,14 +1,23 @@
 .card-project-description{
     height: 48px;
+    width: 250px;
+    
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.project-title-width{
+   
     width: 100%;
     
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
-.projects-backgorund{
-    background-color: rgb(182, 184, 185);
-    height: 100%;
+.projects-background{
+    background-color: rgb(133, 136, 136);
+    display: flex;
+    flex-direction: column;
     height: 100vh;
     width: 100%;
 }
@@ -41,6 +50,8 @@
     align-items: center;
     justify-content:center;
     padding: 10px;
+    background-color: rgb(133, 136, 136);
+    
 }
 
 .cards-border{

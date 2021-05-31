@@ -21,8 +21,8 @@ export const Projects = (project) => {
             >
                 
                     <div className="card-body card-body-margin ">
-                            <h5 className="card-title card-text-white">{project.projectName}</h5>
-                            <p className="card-text card-project-description card-text-white">{project.description}</p>
+                            <h5 className="card-title card-text-white project-title-width">{project.projectName}</h5>
+                            <p className="card-text card-project-description card-text-white" >{project.description}</p>
 
                             <div className="progress progress-bar-background">
                             <div className="progress-bar  progress-bar-color"  role="progressbar"  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"

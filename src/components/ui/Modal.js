@@ -1,16 +1,34 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import { useForm } from '../../hooks/useForm';
-import { useDispatch } from 'react-redux';
-import { projectAddNew } from '../../actions/project';
+import { useDispatch, useSelector } from 'react-redux';
+import { projectAddNew, projectEdited } from '../../actions/project';
 
 export const Modal = () => {
 
-    const dispatch = useDispatch();    
+    const dispatch = useDispatch();  
     
-    const [formValues, handleInputChange, reset] = useForm({projectName:''});
+    let initialStateForm = {};
+        const {activeProject} = useSelector(state => state.project);
+        
+        if(activeProject !== null){
+            initialStateForm  = activeProject;   
+           }else{
+            initialStateForm = {
+                projectName:'',
+                description:'',
+                startDate:'',
+                endDate:''
+            }  
+           }
+           
+    
+    
+    const [formValues, handleInputChange, reset] = useForm(initialStateForm);
+    
+   
+    const {projectName, description, startDate, endDate} = formValues;
 
-    const {projectName, description, startDate, finishDate} = formValues;
 
     const initialState = {
         active: false,
@@ -29,26 +47,43 @@ export const Modal = () => {
 
     const handleModalClose = ()=>{
         setState(initialState);
+        reset();
     }
 
     const handleAddProject = ()=>{
         if(isFormValid()){
-            dispatch(projectAddNew({
-                ...formValues,
-                id: new Date().getTime(),
-                task:[],
-                imgBackground: state.url
-            }));
-            document.getElementById('btnClose').click();
+
+                if(activeProject === null){
+                    dispatch(projectAddNew({
+                        ...formValues,
+                        id: new Date().getTime(),
+                        task:[],
+                        imgBackground: state.url
+                    }));
+                    document.getElementById('btnClose').click();
+                }else{
+                    if(isFormValid()){
+                        dispatch(projectEdited({
+                            ...formValues,
+                            id: activeProject.id,
+                            imgBackground: state.url
+                        }));
+                        document.getElementById('btnClose').click();
+                        
+                    }
+                }
+
+           
+            
             
         }
     }
     
     const isFormValid=()=>{
        const momentStart = moment(startDate);
-       const momentFinish = moment(finishDate);
+       const momentFinish = moment(endDate);
 
-       
+      
 
         if(projectName.trim().length === 0){
             setvalidation({
@@ -102,15 +137,16 @@ export const Modal = () => {
                     type="text" 
                     placeholder="Project Name"
                     name="projectName"
+                    maxLength="35"
                     value={projectName}
                     onChange={handleInputChange}
                     />
                     
-                    <input 
-                    className={`" mt-2 auth__input auth__input-text ${(state.active)?'modal-input-colors' : 'modal-input-colors-none'} "`}
+                    <textarea 
+                    className={`" modal-textarea mt-2 auth__input auth__input-text ${(state.active)?'modal-input-colors' : 'modal-input-colors-none'} "`}
                     type="text" 
                     placeholder="Describe your project (optional)"
-                    name="Description"
+                    name="description"
                     value={description}
                     onChange={handleInputChange}
                     />
@@ -129,8 +165,8 @@ export const Modal = () => {
                         <input 
                         className={`" mt-2 auth__input auth__input-text ${(state.active)?'modal-input-colors' : 'modal-input-colors-none'} "`}
                         type="date" 
-                        name="finishDate"
-                        value={finishDate}
+                        name="endDate"
+                        value={endDate}
                         onChange={handleInputChange}
                     />
                 </label>

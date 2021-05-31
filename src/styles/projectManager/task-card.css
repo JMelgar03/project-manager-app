@@ -23,5 +23,26 @@
 }
 
 .task-card-height{
-    height: 80%;
+    height: 100%;
+    
+}
+
+.task-text-area{
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.task-card-background{
+    background-color: rgb(245, 240, 240);
+}
+
+.task-description{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    overflow-x: auto;
+   
 }

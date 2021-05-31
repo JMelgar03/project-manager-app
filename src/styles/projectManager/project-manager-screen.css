@@ -17,7 +17,7 @@
 }
 
 .background-project-manager{
-    height: 100%;
+    height: 100vh;
     width: 100vw;
     padding-top: 5px;
     background-color: rgb(16, 22, 71);
@@ -32,4 +32,54 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.new-task-card-background{
+    background-color: rgba(187, 187, 187, 0.3);
+}
+
+.project-manager-container-task{
+    max-height: 70vh;
+    min-height: 50vh;
+    overflow: auto;
+}
+
+.project-manager-container-task::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+
+.project-manager-container-task::-webkit-scrollbar-thumb {
+    background-color: rgba(187, 187, 187, 0.2);
+    border-radius: 20px;
+    border: 1px solid #f1f2f3;
+}
+
+.project-manager-container-task::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.project-manager-max{
+    max-height: 100%;
+    margin-bottom: 5px;
+}
+
+.project-manager-max-2{
+    max-height: 80vh;
+    padding: 15px;
+    overflow: auto;
+}
+
+.project-manager-div-button{
+    padding-left: 20px;
+}
+
+.project-manager-icon-button{
+    color: white;
+}
+
+.width-button-project{
+    width: auto;
+}
+
+.drop-down-background{
+    background-color: rgba(187, 187, 187, 0.9);
 }

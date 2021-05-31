@@ -5,12 +5,15 @@ export const types = {
     uiLoading: '[Ui] Loading',
     uiFinishLoading: '[Ui] Finish Loading',
 
-    projectAddNew: '[Project] Add New',
+    projectCreate: '[Project] Create',
     projectSetActive: '[Project] Set Active',
     projectSetDesactivate: '[Project] set Desactivate',
     projectDelete: '[Project] Delete',
     projectUpdate: '[Project] Update',
 
-    projectChangeCard: '[Project] Change Card'
+    projectCreateTask: '[Project] Create Task',
+    projectChangeCard: '[Project] Change Card',
+    projectEditTask: '[Project] Edit Task',
+    projectDeleteTask: '[Project] Delete Task'
 
 }

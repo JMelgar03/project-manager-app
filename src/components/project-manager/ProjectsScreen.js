@@ -28,7 +28,7 @@ export const ProjectsScreen = () => {
 
 
     return (
-        <div className="projects-backgorund">
+        <div className="projects-background">
             
             <Modal />
 
@@ -47,7 +47,7 @@ export const ProjectsScreen = () => {
             }
             
 
-            <div className="row cards-screen-center">
+            <div className="row cards-screen-center ">
 
 
             <div className="card  m-2 col-sm-12 col-md-3 card-new-entry cards-border animate__animated animate__zoomIn"  >
@@ -76,8 +76,6 @@ export const ProjectsScreen = () => {
                 }
                 
             </div>
-        </div>
-        
-        
+        </div>  
     )
 }
