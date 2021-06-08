@@ -99,7 +99,7 @@ export const ProjectManagerScreen = () => {
             </div>
 
                 <div className="progress progressbar-project">
-                    <div className="progress-bar progresbar-project-color" role="progressbar" style={{width: `${activeProject?.progress}`}} aria-valuenow={activeProject?.progress} aria-valuemin="0" aria-valuemax="100">{activeProject?.progress}</div>
+                    <div className="progress-bar progresbar-project-color" role="progressbar" style={{width: `${activeProject?.progress}`}} aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{activeProject?.progress}</div>
                 </div>
             <div className="container">
             <div className="row project-manager-max-2"  >
