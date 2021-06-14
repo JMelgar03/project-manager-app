@@ -13,6 +13,7 @@ import { login } from '../actions/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { ProjectRouter } from './ProjectRouter';
+import { setActiveProject } from '../actions/project';
 
 export const AppRouter = () => {
 
@@ -27,7 +28,14 @@ export const AppRouter = () => {
             if(user?.uid){
             
                 dispatch(login(user.uid, user.displayName, user.emailVerified));
+
                 setisLoggedIn(true);
+
+                if(localStorage.getItem('activeProject')!==null){
+                    const project = JSON.parse(localStorage.getItem('activeProject'))
+                    console.log(project)
+                    dispatch(setActiveProject(project));
+                }
                 
             }
             else{
@@ -43,7 +51,7 @@ export const AppRouter = () => {
         return(
             <div className="wait-screen">
                 
-                <span><i class="fas fa-spinner fa-2x"> </i> </span> 
+                <span><i className="fas fa-spinner fa-2x"> </i> </span> 
                 <span> <h2> checking please wait...</h2></span>
 
 

@@ -22,8 +22,9 @@ export const ProjectsScreen = () => {
    useEffect(() => {
         dispatch(startLoadProjects(uid));
         dispatch(setDesactivateProject());
+        localStorage.setItem('activeProject',JSON.stringify(null));
 
-    }, [dispatch])
+    }, [dispatch,uid])
 
      
 
@@ -69,7 +70,7 @@ export const ProjectsScreen = () => {
 
 
                 {
-                    projects.map(project =>(
+                    projects?.map(project =>(
                         <Projects key={project.id} {...project} />
                     ))
                         

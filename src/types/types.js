@@ -12,6 +12,7 @@ export const types = {
     projectDelete: '[Project] Delete',
     projectUpdate: '[Project] Update',
     projectLoaded:'[Project] Load Project',
+    projectLogOut:'[Project] LogOut',
 
     projectCreateTask: '[Project] Create Task',
     projectChangeCard: '[Project] Change Card',

@@ -8,11 +8,14 @@ import { Modal } from '../ui/Modal';
 import { TaskCard } from './TaskCard';
 
 
+
 export const ProjectManagerScreen = () => {
 
     const dispatch = useDispatch();
     const {activeProject} = useSelector(state => state.project);
     const {uid} = useSelector(state => state.auth);
+
+    
    
     const [valid, setValid] = useState(true);
    
@@ -23,7 +26,7 @@ export const ProjectManagerScreen = () => {
     
     
     useEffect(() => {
-        
+        localStorage.setItem('activeProject',JSON.stringify(activeProject));
         return () => {
            //dispatch(setDesactivateProject())
         }

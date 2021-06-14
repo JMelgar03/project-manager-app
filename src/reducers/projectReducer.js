@@ -225,6 +225,8 @@ export const projectReducer = (state= initialState, action) => {
                     ...state,
                     projects:[ ...action.payload ]
                 }
+            case types.projectLogOut:
+                return {}
         
             default:
                 return state;

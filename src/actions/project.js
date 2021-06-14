@@ -211,3 +211,7 @@ const changeStatusCard = (project,progress)=>({
                 progress:progress
         }
 })
+
+export const projectLogOut=()=>({
+        type: types.projectLogOut
+})

@@ -2,6 +2,7 @@ import {firebase, googleAuthProvider} from '../firebase/firebase-config';
 import Swal from 'sweetalert2';
 import { types } from "../types/types";
 import { finishUiLoading, startUiLoading } from './uiLoading';
+import { projectLogOut } from './project';
 
 
 export const startGoogleLogin = ()=>{
@@ -78,11 +79,13 @@ export const startlogOut = ()=>{
   return async(dispatch)=>{
     await firebase.auth().signOut()
     .then(
-      dispatch(logOut())
+      dispatch(logOut()),
+      dispatch(projectLogOut())      
     )
     .catch(e=>{
       console.log(e)
     })
+
   }
 }
 
