@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { projectAddNew, projectEdited } from '../../actions/project';
+import { startProjectAddnew, startProjectEdit } from '../../actions/project';
 
 export const Modal = () => {
 
     const dispatch = useDispatch();  
     
     let initialStateForm = {};
-        const {activeProject} = useSelector(state => state.project);
-        
+       
+    const {activeProject} = useSelector(state => state.project);
+       
+    const {uid} = useSelector(state => state.auth);
+       
         if(activeProject !== null){
             initialStateForm  = activeProject;   
            }else{
@@ -54,19 +57,22 @@ export const Modal = () => {
         if(isFormValid()){
 
                 if(activeProject === null){
-                    dispatch(projectAddNew({
+                    dispatch(startProjectAddnew({
                         ...formValues,
-                        id: new Date().getTime(),
                         task:[],
-                        imgBackground: state.url
+                        imgBackground: state.url,
+                        user: uid
                     }));
                     document.getElementById('btnClose').click();
                 }else{
                     if(isFormValid()){
-                        dispatch(projectEdited({
+                        dispatch(startProjectEdit({
                             ...formValues,
                             id: activeProject.id,
-                            imgBackground: state.url
+                            imgBackground: state.url,
+                            user: activeProject.user,
+                            task: activeProject.task,
+                            progress:activeProject.progress
                         }));
                         document.getElementById('btnClose').click();
                         

@@ -1,9 +1,5 @@
 import { types } from "../types/types";
-
-
-const initialState ={
-     projects:[
-            {
+/*{
             id:'axaxax',
             projectName: 'Sistema De Matriculas',
             description: 'Sistema para facilitar la matricula de estudiantes.',
@@ -101,9 +97,10 @@ const initialState ={
             progress:'80%',
             imgBackground:'../img/fondo6.jpg'
             
-            }
+            } */
 
-        ],
+const initialState ={
+     projects:[],
     activeProject: null
 }
 
@@ -151,8 +148,8 @@ export const projectReducer = (state= initialState, action) => {
                             state.projects.map(p=> (p.id === action.payload.idProject)
                             ?({
                                 ...p,
-                                task:[ ...p.task, action.payload.task],
-                                progress: action.payload.progress
+                                task:[ ...p.task, action.payload.task]
+                               
                             })
                             :(p)
                             )
@@ -169,8 +166,7 @@ export const projectReducer = (state= initialState, action) => {
                     ...state,
                     projects: state.projects.map(p => (p.id === action.payload.project.id) 
                         ?{...p,
-                        task:action.payload.project.task,
-                        progress: action.payload.progress
+                        task:action.payload.project.task
                 } 
                         : p),
 
@@ -186,7 +182,7 @@ export const projectReducer = (state= initialState, action) => {
                         ...state,
                         projects: state.projects.map(p => (p.id === action.payload.idProject) 
                             ?{...p,
-                                task: p.task.map(t=>(t.id === action.payload.task.id)
+                                task: p.task.map(t=>(t._id === action.payload.task._id)
                                 ?(
                                    action.payload.task
                                 )
@@ -199,7 +195,7 @@ export const projectReducer = (state= initialState, action) => {
     
                         activeProject: {
                             ...state.activeProject,
-                            task: state.activeProject.task.map(t=>(t.id === action.payload.task.id)
+                            task: state.activeProject.task.map(t=>(t._id === action.payload.task._id)
                                                                     ?(action.payload.task)
                                                                     : t
                             )
@@ -213,16 +209,21 @@ export const projectReducer = (state= initialState, action) => {
                     
                     projects:state.projects.map(p => ({
                         ...p,
-                        task: p.task.filter(t=>(t.id !== action.payload.idTask)),
-                        progress: action.payload.progress
+                        task: p.task.filter(t=>(t._id !== action.payload.idTask))
                     }))
                     
                     ,
                     
                     activeProject:{ ...state.activeProject,
-                        task: state.activeProject.task.filter(ta=>(ta.id !== action.payload.idTask)),
+                        task: state.activeProject.task.filter(ta=>(ta._id !== action.payload.idTask)),
                         progress: action.payload.progress
                     }
+                }
+            
+            case types.projectLoaded:
+                return{
+                    ...state,
+                    projects:[ ...action.payload ]
                 }
         
             default:

@@ -1,14 +1,23 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setActiveProject } from '../../actions/project';
+import { progress } from '../../helpers/progress';
 
 export const Projects = (project) => {
     const dispatch = useDispatch();
 
+    const progressNow = progress(project);
+
     const handleActiveProject = ()=>{
-        dispatch(setActiveProject(project));
+
+        dispatch(setActiveProject(
+            {...project,
+                progress:progressNow
+        }));
         
     } 
+    
+
     return (
         <>          
 
@@ -24,9 +33,9 @@ export const Projects = (project) => {
                             <p className="card-text card-project-description card-text-white" >{project.description}</p>
 
                             <div className="progress progress-bar-background">
-                            <div className="progress-bar  progress-bar-color"  role="progressbar"  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                            <div className="progress-bar  progress-bar-color"  role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
                             style={{
-                                width: project.progress
+                                width: progressNow
                             }}
                             > 
                             </div>

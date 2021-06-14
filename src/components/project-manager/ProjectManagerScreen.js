@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
-import { cardTaskCreated, projectDeleted} from '../../actions/project';
+import { startCardTaskCreate, startProjectDelete} from '../../actions/project';
 import { progress } from '../../helpers/progress';
 import { useForm } from '../../hooks/useForm';
 import { Modal } from '../ui/Modal';
@@ -12,6 +12,7 @@ export const ProjectManagerScreen = () => {
 
     const dispatch = useDispatch();
     const {activeProject} = useSelector(state => state.project);
+    const {uid} = useSelector(state => state.auth);
    
     const [valid, setValid] = useState(true);
    
@@ -29,7 +30,7 @@ export const ProjectManagerScreen = () => {
     }, [dispatch]);
 
     const handleDeleteProject = ()=>{
-        dispatch( projectDeleted(activeProject.id) )
+        dispatch( startProjectDelete(activeProject.id, {user: uid}) )
     }
 
    
@@ -37,7 +38,6 @@ export const ProjectManagerScreen = () => {
        
         if(isTaskValid()){
            const task = {
-                id: new Date().getTime(),
                 taskTitle: taskTitle,
                 status: 'ToDo'
             }
@@ -50,9 +50,11 @@ export const ProjectManagerScreen = () => {
             }
 
             const progressNow = progress(newProject);
+            
 
-           dispatch(cardTaskCreated(activeProject.id, task, progressNow));
+           dispatch(startCardTaskCreate(activeProject.id, task, progressNow));
            reset();
+          
         }
     } 
 
@@ -128,7 +130,7 @@ export const ProjectManagerScreen = () => {
                     {
                         activeProject?.task.map(task2=>{
                             if(task2.status === 'ToDo')
-                            return <TaskCard key={task2.id} {...task2} />
+                            return <TaskCard key={task2._id} {...task2} />
                         }
                         )
 
@@ -148,7 +150,7 @@ export const ProjectManagerScreen = () => {
                     {
                         activeProject?.task.map(task2=>{
                             if(task2.status === 'Doing')
-                            return <TaskCard key={task2.id} {...task2} />
+                            return <TaskCard key={task2._id} {...task2} />
                         }
                         )
 
@@ -168,7 +170,7 @@ export const ProjectManagerScreen = () => {
                         activeProject?.task.map(task2=>{
                             if(task2.status === 'Done'){ 
                                 
-                                return <TaskCard key={task2.id} {...task2} />
+                                return <TaskCard key={task2._id} {...task2} />
                             
                         }
                         }

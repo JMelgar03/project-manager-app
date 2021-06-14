@@ -60,7 +60,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: auto;
     
+}
+
+.cards-border::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+
+.cards-border::-webkit-scrollbar-thumb {
+    background-color: rgba(187, 187, 187, 0.2);
+    border-radius: 20px;
+    border: none;
+}
+
+.cards-border::-webkit-scrollbar:horizontal {
+    width:10px;
 }
 
 
@@ -79,6 +94,7 @@
 
 .progress-bar-color{
     background-color: rgb(97, 97, 97);
+    min-width: 2%;
 }
 .card-project-cursor{
     cursor: pointer;

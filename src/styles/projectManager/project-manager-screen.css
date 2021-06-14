@@ -10,6 +10,7 @@
 
 .progresbar-project-color{
     background-color: rgb(97, 97, 97);
+    min-width: 2%;
 }
 
 .transparent{

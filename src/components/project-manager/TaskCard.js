@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { cardTaskDeleted, cardTaskEdited, changeStatusCard } from '../../actions/project';
+import { startCardTaskDelete, startCardTaskEdit, startChangeStatusCard } from '../../actions/project';
 import { progress } from '../../helpers/progress';
 import { useForm } from '../../hooks/useForm';
 
@@ -21,21 +21,26 @@ export const TaskCard = (task) => {
 
             const newProject = {
                 ...activeProject,
-                task: activeProject.task.map(t => (t.id === task.id)?{...task,status:'Doing'}:t)
+                task: activeProject.task.map(t => (t._id === task._id)?{...task,status:'Doing'}:t)
             }
-  
+           
+            const newTask = newProject.task.filter(t => (t._id === task._id));
+          
+           
             const progressNow = progress(newProject);
 
-            dispatch(changeStatusCard(newProject,progressNow));
+            dispatch(startChangeStatusCard(newProject,progressNow, newTask[0]));
 
         }else if(task.status ==='Doing'){
-            dispatch(changeStatusCard({
-            ...activeProject,
-            task: activeProject.task.map(t => (t.id === task.id)?{...task,status:'ToDo'}:t )
-          },
-        activeProject.progress
-        
-        ));
+
+            const newProject = {
+                ...activeProject,
+                task: activeProject.task.map(t => (t._id === task._id)?{...task,status:'ToDo'}:t)
+            }
+           
+            const newTask = newProject.task.filter(t => (t._id === task._id));
+
+            dispatch(startChangeStatusCard(newProject,activeProject.progress, newTask[0] ));
         }
       
    }
@@ -44,22 +49,23 @@ export const TaskCard = (task) => {
    const handleMoveRight = ()=>{
 
         if(task.status==='ToDo'){
-            dispatch(changeStatusCard({
+            const newProject = {
                 ...activeProject,
-                task: activeProject.task.map(t => (t.id === task.id)?{...task,status:'Doing'}:t )
-         },
-         activeProject.progress
-         ));
+                task: activeProject.task.map(t => (t._id === task._id)?{...task,status:'Doing'}:t)
+            }
+
+            const newTask = newProject.task.filter(t => (t._id === task._id));
+            dispatch(startChangeStatusCard(newProject, activeProject.progress, newTask[0]));
 
         }else if(task.status ==='Doing'){
             const newProject = {
                 ...activeProject,
-                task: activeProject.task.map(t => (t.id === task.id)?{...task,status:'Done'}:t)
+                task: activeProject.task.map(t => (t._id === task._id)?{...task,status:'Done'}:t)
             }
-                
-            const progressNow = progress(newProject);
             
-            dispatch(changeStatusCard(newProject,progressNow));
+            const progressNow = progress(newProject);
+            const newTask = newProject.task.filter(t => (t._id === task._id));
+            dispatch(startChangeStatusCard(newProject,progressNow,newTask[0]));
         }
     }
 
@@ -75,8 +81,7 @@ export const TaskCard = (task) => {
 
 
     const handleSaveEditTask = ()=>{
-        
-        dispatch(cardTaskEdited(activeProject.id, formValues));
+        dispatch(startCardTaskEdit(activeProject.id, formValues));
         setEditable(false);
     }
 
@@ -84,12 +89,12 @@ export const TaskCard = (task) => {
     const handleDeleteTask = ()=>{
         const newProject = {
             ...activeProject,
-            task: activeProject.task.filter(t=>(t.id !== task.id ))
+            task: activeProject.task.filter(t=>(t._id !== task._id ))
         }
 
         const progressNow = progress(newProject);
-        console.log(newProject);
-        dispatch(cardTaskDeleted(task.id, progressNow));
+        
+        dispatch(startCardTaskDelete(task._id, progressNow));
        
     }
 
