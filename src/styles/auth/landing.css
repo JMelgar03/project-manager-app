@@ -8,9 +8,11 @@
     justify-content: center;
 }
 
+
+
 .landingPage-bg-color{
     background-color: rgb(189, 196, 196);
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -25,10 +27,16 @@
 
 .carousel-control-prev{
     background-color: rgba(rgb(88, 85, 85), rgb(164, 165, 164), rgb(144, 144, 153), 0.9);
-    display: none;
+   
 }
 
 .carousel-control-next{
     background-color: rgba(rgb(88, 85, 85), rgb(164, 165, 164), rgb(144, 144, 153), 0.9);
-    display: none;
+    
+}
+
+.landing-text{
+    font-size: 25px;
+    text-align: justify;
+    margin: 20px;
 }
