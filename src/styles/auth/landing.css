@@ -26,17 +26,23 @@
 }
 
 .carousel-control-prev{
-    background-color: rgba(rgb(88, 85, 85), rgb(164, 165, 164), rgb(144, 144, 153), 0.9);
-   
+    background-color: transparent;
+    border-color: transparent;
 }
 
 .carousel-control-next{
-    background-color: rgba(rgb(88, 85, 85), rgb(164, 165, 164), rgb(144, 144, 153), 0.9);
-    
+    background-color: transparent;
+    border-color: transparent;
 }
 
 .landing-text{
     font-size: 25px;
     text-align: justify;
     margin: 20px;
+}
+
+
+.landing-img-size-logo{
+    height: 150;
+    width: 300px;
 }

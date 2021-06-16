@@ -15,13 +15,13 @@ export const LandinPageScreen = () => {
                         <a className="nav-link" href="#scrollspyHeading1">Introduction</a>
                     </li>
                      <li className="nav-item">
-                        <a className="nav-link" href="#scrollspyHeading2">Second</a>
+                        <a className="nav-link" href="#scrollspyHeading2">Functions</a>
                     </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Login</a>
                      <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="#scrollspyHeading3">Login</a></li>
-                        <li><a className="dropdown-item" href="#scrollspyHeading4">Register</a></li>
+                        <li><Link className="dropdown-item nav-link" to="/auth/login">Login</Link></li>
+                        <li><Link className="dropdown-item nav-link" to="/auth/register">Register</Link></li>
                         
                      </ul>
                  </li>
@@ -35,8 +35,13 @@ export const LandinPageScreen = () => {
                 <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" className="scrollspy-example landingPage-bg-color row landingPage-aligItems" tabIndex="0">
                     <div id="scrollspyHeading1 " className="landingPage-aligItems col-12">
                         <div className="row landingPage-aligItems">
-                        <h1 className="COL-12 pt-5 pb-5">J PROJECT MANAGER</h1>
-                            <div id="carouselExampleControls" className="carousel slide col-12" data-bs-ride="carousel">
+                       
+                        <div className="col-12 la landingPage-aligItems">
+                            <img src="../Logo-white-transparent.PNG" class="img-fluid landing-img-size-logo" alt="logo">
+                            </img>
+                            </div>
+                        
+                            <div id="carouselExampleControls" className="carousel slide col-12 animate__animated animate__zoomIn" data-bs-ride="carousel">
                                 <div className="carousel-inner">
                                     <div className="carousel-item active">
                                         <img src="../img/landing/introduction.png" className="d-block w-100" alt="..."/>
@@ -59,9 +64,9 @@ export const LandinPageScreen = () => {
                             </div>
                         
                         
-                        <p className="landing-text col-12">With J Project Manager you can keep track of the tasks of your projects in an organized way, 
+                        <p className="landing-text col-12 animate__animated animate__fadeIn">With J Project Manager you can keep track of the tasks of your projects in an organized way, 
                         knowing at all times the percentage of tasks completed and pending.</p>
-                        <div className="col-12 landingPage-aligItems">
+                        <div className="col-12 landingPage-aligItems animate__animated animate__fadeIn">
                         <Link to="/auth/login" className="btn btn-info w-50 ">
                         Try it now!
                         </Link>
@@ -73,20 +78,34 @@ export const LandinPageScreen = () => {
                   
 
                     <div id="scrollspyHeading2" className="landingPage-aligItems row pt-5 pb-5">
-                        <h2 className="col-12 pt-5 pb-5" >Other Functions</h2>
+                        <h2 className="col-12 pt-5 pb-5 animate__animated animate__fadeIn" >Other Functions:</h2>
                         
-                        <div className="card  col-sm-12 col-md-4 col-4" >
+                        <div className="card  col-sm-12 col-md-6 col-lg-4 m-1 mt-3 animate__animated animate__zoomIn" >
                             <img src="../img/landing/gooSesion.png" className="card-img-top" alt="..."/>
                             <div class="card-body">
                                 <h5 className="card-title">Login with Google</h5>
-                                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p className="card-text">You can do a quick login using your google account your credentials are not stored on our servers to make a secure login.</p>
                                 <div className="landingPage-aligItems">
-                        <Link to="/auth/login" className="btn btn-info  ">
-                        Try it now!
-                        </Link>
+                                <Link to="/auth/login" className="btn btn-info  ">
+                                    Try it now!
+                                </Link>
+                                 </div>
+                            </div>
                         </div>
+
+                        <div className="card  col-sm-12 col-md-6 col-lg-4  m-1 mt-3 animate__animated animate__zoomIn" >
+                            <img src="../img/landing/progressBar.jpg" style={{width: '348px', height: '182px'}} className="card-img-top" alt="..."/>
+                            <div class="card-body">
+                                <h5 className="card-title">Percentage Bar</h5>
+                                <p className="card-text">A progress bar will accompany you throughout your projects to remind you how much you have completed.</p>
+                                <div className="landingPage-aligItems">
+                                <Link to="/auth/login" className="btn btn-info  ">
+                                    Try it now!
+                                </Link>
+                                 </div>
                             </div>
-                            </div>
+                        </div>
+
                     </div>
                     
                 </div>
