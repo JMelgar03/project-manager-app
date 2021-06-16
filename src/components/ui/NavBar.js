@@ -35,12 +35,7 @@ export const NavBar = () => {
             </Link>
         </li>
         
-        <li className="nav-item">
-          
-          <Link className="nav-link " to="/home/manage" tabIndex="-1" aria-disabled="true" >
-                   Manage
-            </Link>
-        </li>
+        
 
       </ul>
     </div>

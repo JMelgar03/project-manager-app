@@ -168,7 +168,7 @@ export const ProjectManagerScreen = () => {
                 <div className="card m-2 transparent project-manager-container-task" >
                     <div className="card-body">
                         <h5 className="card-title title-white">Done</h5>
-                        <h6 className="card-subtitle mb-2  title-white">things to do</h6>
+                       
                     {   
                         activeProject?.task.map(task2=>{
                             if(task2.status === 'Done'){ 

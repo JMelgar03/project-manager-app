@@ -68,7 +68,7 @@ export const AppRouter = () => {
                <PrivateRoute  isLogged={isLoggedIn}  path="/home" component={ProjectRouter} />
                
 
-               <Redirect to="/auth/login" />
+               <Redirect to="/auth/landingPage" />
            </Switch>
         </Router>
     )
