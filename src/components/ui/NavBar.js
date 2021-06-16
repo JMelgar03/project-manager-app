@@ -52,7 +52,7 @@ export const NavBar = () => {
                         <span className="fas fa-user"> </span> {name}
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><button className="dropdown-item" type="button">Action</button></li>
+                        <li><Link to="/home/profile" className="dropdown-item" type="button">Profile</Link></li>
                         <li >
                             <button className="dropdown-item fas fa-sign-out-alt " type="button"  onClick={handleLogout}><span className="navbar-font"> Logout</span></button>
                      

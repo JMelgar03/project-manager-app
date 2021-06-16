@@ -11,6 +11,7 @@ import './styles/ui/modal.css';
 import './styles/ui/tableImage.css';
 import './styles/projectManager/project-manager-screen.css';
 import './styles/projectManager/task-card.css';
+import './styles/projectManager/profile.css';
 
 export const ProjectApp = () => {
     return (

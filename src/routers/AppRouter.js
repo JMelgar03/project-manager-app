@@ -33,7 +33,7 @@ export const AppRouter = () => {
 
                 if(localStorage.getItem('activeProject')!==null){
                     const project = JSON.parse(localStorage.getItem('activeProject'))
-                    console.log(project)
+                   
                     dispatch(setActiveProject(project));
                 }
                 

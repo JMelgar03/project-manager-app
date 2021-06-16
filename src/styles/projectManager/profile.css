@@ -1,0 +1,48 @@
+.prfile-bg{
+ background-color: rgb(182, 184, 185);
+ height: 100%;
+ width: 100%;
+}
+
+.profile-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: rgb(136, 135, 135);
+    height: 550px;
+    width: 400px;
+    background-color:rgb(210, 214, 216); 
+}
+
+.profile-cont1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image{
+    height: 100px;
+    width: 100px;
+    border-radius: 360px;
+}
+
+.profile__input{
+    background-color:rgb(210, 214, 216) ;
+    color: grey;
+    border: 0px;
+    border-bottom: 1px solid grey;
+    font-size: 16px;
+    margin-bottom: 10px;
+    height: 20px;
+    width: 100%;
+
+    transition: border-bottom .3s ease;
+    
+}
+
+.profile__input-text:focus{
+    border-bottom: 1px solid grey;
+        outline: none;
+}
+

@@ -9,7 +9,7 @@ export const startGoogleLogin = ()=>{
   return(dispatch)=>{
     firebase.auth().signInWithPopup(googleAuthProvider)
     .then(({user}) => {
-      dispatch(login(user.uid, user.displayName))
+      dispatch(login(user.uid, user.displayName, user.email))
     })
     .catch(e => {
       
@@ -24,7 +24,7 @@ export const loginEmailAndPassword = (email, password) =>{
       dispatch(startUiLoading());
      firebase.auth().signInWithEmailAndPassword(email, password)
      .then( ({ user }) =>{
-      dispatch( login(user.uid, user.displayName, user.emailVerified) );
+      dispatch( login(user.uid, user.displayName, user.emailVerified, user.email) );
       dispatch(finishUiLoading());
      })
      .catch(e=>{
@@ -43,7 +43,7 @@ export const createUserEmailAndPassword = (name, lastname, email, password )=>{
       .then(async({user})=>{
           await user.updateProfile({displayName: `${name} ${lastname}`});
           dispatch(sendVerificationEmail());
-          dispatch( login(user.uid, user.displayName, user.emailVerified) );
+          dispatch( login(user.uid, user.displayName, user.emailVerified, user.email) );
           dispatch(finishUiLoading());
       })
       .catch(e=>{
@@ -66,12 +66,13 @@ export const sendVerificationEmail = ()=>{
 }
 
 
-export const login = (uid, displayName, emailVerified)=>({
+export const login = (uid, displayName, emailVerified, email)=>({
   type: types.login,
   payload: {
       uid,
       displayName,
-      emailVerified
+      emailVerified,
+      email
   }
 });
 
