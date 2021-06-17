@@ -43,6 +43,13 @@
 
 .profile__input-text:focus{
     border-bottom: 1px solid grey;
-        outline: none;
+    outline: none;
 }
 
+
+.profile-spiner{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

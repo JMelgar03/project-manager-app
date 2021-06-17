@@ -81,7 +81,7 @@ export const LandinPageScreen = () => {
                         <h2 className="col-12 pt-5 pb-5 animate__animated animate__fadeIn" >Other Functions:</h2>
                         
                         <div className="card  col-sm-12 col-md-6 col-lg-4 m-1 mt-3 animate__animated animate__zoomIn" >
-                            <img src="../img/landing/gooSesion.png" className="card-img-top" alt="..."/>
+                            <img src="../img/landing/gooSesion.png"  style={{width: '300px', height: '170px'}} className="card-img-top" alt="..."/>
                             <div class="card-body">
                                 <h5 className="card-title">Login with Google</h5>
                                 <p className="card-text">You can do a quick login using your google account your credentials are not stored on our servers to make a secure login.</p>
@@ -94,7 +94,7 @@ export const LandinPageScreen = () => {
                         </div>
 
                         <div className="card  col-sm-12 col-md-6 col-lg-4  m-1 mt-3 animate__animated animate__zoomIn" >
-                            <img src="../img/landing/progressBar.jpg" style={{width: '348px', height: '182px'}} className="card-img-top" alt="..."/>
+                            <img src="../img/landing/progressBar.jpg" style={{width: '300px', height: '170px'}} className="card-img-top" alt="..."/>
                             <div class="card-body">
                                 <h5 className="card-title">Percentage Bar</h5>
                                 <p className="card-text">A progress bar will accompany you throughout your projects to remind you how much you have completed.</p>

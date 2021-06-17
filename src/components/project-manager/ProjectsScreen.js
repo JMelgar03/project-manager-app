@@ -14,8 +14,10 @@ export const ProjectsScreen = () => {
 
     const {userEmailVerified, uid} = useSelector(state => state.auth);
     const {projects, activeProject} = useSelector(state => state.project);
+    const {loading} = useSelector(state => state.ui);
+
     const dispatch = useDispatch();
-   const handleResendEmailVerification =()=>{ //Pendiente de realizar...
+    const handleResendEmailVerification =()=>{ //Pendiente de realizar...
        console.log('Resend');
    }
 
@@ -47,11 +49,17 @@ export const ProjectsScreen = () => {
             {
                 activeProject && <Redirect to="/home/manage"></Redirect>
             }
+
+            
             
 
             <div className="row cards-screen-center ">
 
-
+            { (loading) && (<div class="spinner-border text-info profile-spiner" role="status">
+                    <span class="visually-hidden"></span>
+                </div>)
+                
+            }
             <div className="card  m-2 col-sm-12 col-md-3 card-new-entry cards-border animate__animated animate__zoomIn"  >
                     <div className="card-body card-new-entry-center">
                        

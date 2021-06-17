@@ -24,6 +24,7 @@ export const loginEmailAndPassword = (email, password) =>{
       dispatch(startUiLoading());
      firebase.auth().signInWithEmailAndPassword(email, password)
      .then( ({ user }) =>{
+      
       dispatch( login(user.uid, user.displayName, user.emailVerified, user.email) );
       dispatch(finishUiLoading());
      })
@@ -55,6 +56,58 @@ export const createUserEmailAndPassword = (name, lastname, email, password )=>{
     }
 
 }
+
+
+export const startUpdateName = (name)=>{
+  return async(dispatch)=>{
+    dispatch(startUiLoading());
+    const user = await firebase.auth().currentUser;
+    user.updateProfile({
+      displayName: name
+    }).then(function(){ 
+      dispatch(finishUiLoading());
+      dispatch(login(user.uid,user.displayName, user.emailVerified, user.email))
+    }).catch(e=>{
+      dispatch(finishUiLoading());
+      Swal.fire('Error', e.message, 'error');
+    })
+  }
+}
+
+export const startUpdateEmail = (email)=>{
+  return async(dispatch)=>{
+    dispatch(startUiLoading());
+    const user = await firebase.auth().currentUser;
+    user.updateEmail(email)
+    .then(function(){ 
+      dispatch(sendVerificationEmail());
+      dispatch(login(user.uid,user.displayName, user.emailVerified, user.email));
+      dispatch(finishUiLoading());
+    }).catch(e=>{
+      dispatch(finishUiLoading());
+      Swal.fire('Error', e.message, 'error');
+    })
+  }
+}
+
+export const startUpdatePassword = (password)=>{
+  return (dispatch)=>{
+    const user = firebase.auth().currentUser;
+    dispatch(startUiLoading());
+    user.updatePassword(password)
+    .then(function(){
+      dispatch(finishUiLoading())
+      Swal.fire('Complete','Password Updated','success')
+    }
+    )
+    .catch(e=>{
+      dispatch(finishUiLoading())
+      Swal.fire('Error', e.message, 'error');
+    })
+  }
+  
+}
+
 
 export const sendVerificationEmail = ()=>{
   return async(dispatch)=>{
