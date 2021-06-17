@@ -83,6 +83,10 @@ export const ProfileScreen = () => {
     
                 return;
             }
+            setValidation({
+                valid: true,
+                msg:''
+            });
 
             dispatch(startUpdateEmail(email));
             setEditableEmail(false);

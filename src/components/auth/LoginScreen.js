@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { loginEmailAndPassword } from '../../actions/auth';
 import { startGoogleLogin } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
+import { ModalPassword } from '../ui/ModalPassword';
 
 
 export const LoginScreen = () => {
@@ -67,7 +68,14 @@ export const LoginScreen = () => {
 
 
     return (
+
+        
+
         <div className="auth__main">
+            
+            <ModalPassword />
+
+            
             <div className="auth__box-container animate__animated animate__fadeIn ">
                 <div className="projectManager__margin">
                 <img className="projectManager__logo " src="../JProjectManager-logo.png" alt="Logo" />
@@ -98,6 +106,12 @@ export const LoginScreen = () => {
                     ?(<button className="far fa-eye fa-xs profile-btn-show-password" type="button" onClick={handleShoeHidePass}></button>)
                     :(<button className="far fa-eye-slash fa-xs profile-btn-show-password" type="button" onClick={handleShoeHidePass}></button>)
                 }
+
+                     <div  style={{marginBottom:'10px'}}>
+                         <a  className="link link-hover "  style={{cursor:'pointer', marginBottom:'10px'}} data-bs-toggle="modal" data-bs-target="#exampleModal">
+                             Forgot Password?
+                        </a>
+                    </div>
                  
                  {!(validation.valid) &&(
                     <div className="alert alert-danger" role="alert">

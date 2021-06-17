@@ -129,6 +129,22 @@ export const startUpdatePassword = (password)=>{
   
 }
 
+export const startResetPassword = (email)=>{
+  return async(dispatch)=>{
+
+    const auth = firebase.auth();
+
+    auth.sendPasswordResetEmail(email)
+    .then(function(){
+      Swal.fire('Password Reset','Check your email.','success')
+    })
+    .catch(e=>{
+      Swal.fire('Error',e.message,'error')
+    })
+
+  }
+}
+
 
 export const sendVerificationEmail = ()=>{
   return async(dispatch)=>{
