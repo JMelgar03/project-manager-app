@@ -10,7 +10,8 @@ export const authReducer = (state={}, action) =>{
                 uid: action.payload.uid,
                 email: action.payload.email,
                 name: action.payload.displayName,
-                userEmailVerified: action.payload.emailVerified
+                userEmailVerified: action.payload.emailVerified,
+                photoURL: action.payload.photoURL
                 
             }
             

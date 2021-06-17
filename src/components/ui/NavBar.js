@@ -9,7 +9,7 @@ import { startlogOut } from '../../actions/auth';
 export const NavBar = () => {
 
    const dispatch = useDispatch();
-   const {name} = useSelector(state => state.auth)
+   const {name, photoURL} = useSelector(state => state.auth)
 
 
     const handleLogout = ()=>{
@@ -49,10 +49,14 @@ export const NavBar = () => {
 
                 <div className=" dropdown nav-item">
                     <a className="dropdown-toggle nav-link navbar-user-name navbar-hover" href="#" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span className="fas fa-user"> </span> {name}
+                       
+                       { (photoURL !== null)?(<><img src={photoURL} className="navbar-image-user" /> {name}</>)
+                        :(<><span className="fas fa-user"> </span> {name}</>)
+                        }
+
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><Link to="/home/profile" className="dropdown-item" type="button">Profile</Link></li>
+                        <li><Link to="/home/profile" className="dropdown-item" type="button"><span className="fas fa-user"> </span> Profile</Link></li>
                         <li >
                             <button className="dropdown-item fas fa-sign-out-alt " type="button"  onClick={handleLogout}><span className="navbar-font"> Logout</span></button>
                      

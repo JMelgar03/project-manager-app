@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import validator from 'validator';
-import {startUpdateEmail, startUpdateName, startUpdatePassword } from '../../actions/auth';
+import {startUpdateEmail, startUpdateName, startUpdatePassword, startUploadImage } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
 
 export const ProfileScreen = () => {
-    const {name:name2, email:email2} = useSelector(state => state.auth);
+    const {name:name2, email:email2, photoURL} = useSelector(state => state.auth);
     const {loading} = useSelector(state => state.ui);
     const [formValues, handleInputChange, reset] = useForm({name:'', email:'',password1:'',password2:''});
     const dispatch = useDispatch();
@@ -15,6 +15,19 @@ export const ProfileScreen = () => {
     const [validation, setValidation] = useState({valid:true, msg:''});
 
     const {name, email, password1, password2} = formValues;
+
+    const handleProfileImage = ()=>{
+    
+        document.querySelector('#fileSelector').click();
+    }
+
+    const handleFileChange = (e)=>{
+     const file =  e.target.files[0];
+     if(file){
+         dispatch(startUploadImage(file))
+    }
+    }
+
 
    const handleName = ()=>{
     if(editableName){
@@ -94,9 +107,20 @@ export const ProfileScreen = () => {
                 
             }
            
-             <div className="">
-             <img src="../img/user.png" className="profile-image mx-auto d-block" alt="..."></img>
-                <h2>Profile User</h2>
+             <div  >
+            {(photoURL==null)
+            
+            ?(<img src="../img/user.png" className="profile-image mx-auto d-block" alt="..."></img>)
+            :(<img src={photoURL} className="profile-image mx-auto d-block" alt="..."></img>)
+            }
+            
+            <div className="profile-cont1">
+            
+            <button className="btn task-card-btn-width profile-btn-img" onClick={handleProfileImage}><span className="fas fa-plus-circle task-card-icon-color"></span></button>
+            <input type="file" onChange={handleFileChange} id="fileSelector" style={{display: 'none'}}/>
+            </div> 
+            
+               
                 {!(validation.valid) &&(
                 <div className="alert alert-danger" role="alert">
                 {validation.msg}
@@ -105,7 +129,7 @@ export const ProfileScreen = () => {
 
                
 
-                <h5>Name: {(editableName)
+                <h5 className="profile-title">Name: {(editableName)
                             ?(
                             <>
                             <input 

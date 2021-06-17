@@ -28,3 +28,9 @@
 .navbar-hover:hover{
     color: gray;
 }
+
+.navbar-image-user{
+    height: 25px;
+    width: 25px;
+    border-radius: 360px;
+}
