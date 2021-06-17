@@ -14,7 +14,7 @@ export const NavBar = () => {
    const {name, photoURL, uid} = useSelector(state => state.auth);
    const {projects} = useSelector(state => state.project)
 
-    const [formValues, handleInputChange, reset] = useForm({search:''})
+    const [formValues, handleInputChange] = useForm({search:''})
     const {search} = formValues;
     const handleLogout = ()=>{
          dispatch(startlogOut());   

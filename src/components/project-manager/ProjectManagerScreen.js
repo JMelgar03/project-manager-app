@@ -28,7 +28,7 @@ export const ProjectManagerScreen = () => {
     useEffect(() => {
         localStorage.setItem('activeProject',JSON.stringify(activeProject));
         localStorage.setItem('busqueda',JSON.stringify(false));
-    }, []);
+    }, [activeProject]);
 
     const handleDeleteProject = ()=>{
         dispatch( startProjectDelete(activeProject.id, {user: uid}) )
