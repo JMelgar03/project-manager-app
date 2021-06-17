@@ -4,28 +4,20 @@ import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUserEmailAndPassword } from '../../actions/auth';
-/*
-        {
-            name: 'Jonathan',
-            lastname: 'Melgar',
-            email: 'melgarjonathan03@gmail.com',
-            password: '123456',
-            password2: '123456'
-        }
-*/
+
 
 export const RegisterScreen = () => {
 
       const [validation, setvalidation] = useState({valid:true,msg:''});
       const dispatch = useDispatch();
       const {loading} = useSelector(state => state.ui)
-    
+      const [show, setShow] = useState(false);
     const [formValues, handleInputChange] = useForm({
-        name: 'Jonathan',
-        lastname: 'Melgar',
-        email: 'melgarjonathan03@gmail.com',
-        password: '123456',
-        password2: '123456'
+        name: '',
+        lastname: '',
+        email: '',
+        password: '',
+        password2: ''
     });
 
     const {name, lastname, email, password, password2} = formValues; 
@@ -77,7 +69,13 @@ export const RegisterScreen = () => {
     return true
     }
 
-
+    const handleShoeHidePass = ()=>{
+        if(show){
+            setShow(false);
+        }else{
+            setShow(true);
+        }
+    }
 
 
 
@@ -122,7 +120,7 @@ export const RegisterScreen = () => {
 
             <input
             className=" auth__input auth__input-text"
-            type="password"
+            type={`${(show)?'text':'password'}`}
             name="password"
             placeholder="Password"
             onChange={handleInputChange}
@@ -131,12 +129,17 @@ export const RegisterScreen = () => {
 
             <input
             className=" auth__input auth__input-text"
-            type="password"
+            type={`${(show)?'text':'password'}`}
             name="password2"
             placeholder="Confirm Password"
             onChange={handleInputChange}
             value={password2}
              />
+
+            {(!show)
+                    ?(<button className="far fa-eye fa-xs profile-btn-show-password" type="button" onClick={handleShoeHidePass}></button>)
+                    :(<button className="far fa-eye-slash fa-xs profile-btn-show-password" type="button" onClick={handleShoeHidePass}></button>)
+            }
 
             {!(validation.valid) &&(
             <div className="alert alert-danger" role="alert">

@@ -25,11 +25,14 @@ export const startProjectAddnew=(project)=>{
                   project.id = body.project.id
                   dispatch(projectAddNew(project));
                   dispatch(finishUiLoading());
+                }else{
+                        dispatch(finishUiLoading());
+                        Swal.fire('Error','Contact to administrator: melgarjonathan03@gmail.com','error');
                 }
 
          } catch (error) {
                 dispatch(finishUiLoading());
-                 console.log(error);
+                Swal.fire('Error', error, 'error');
          }
 
         }
@@ -51,18 +54,21 @@ export const startLoadProjects = (idUser)=>{
           if(body.ok){
                 dispatch(finishUiLoading());
                 dispatch(loadProjects(body.projects));
+          }else{
+                dispatch(finishUiLoading());
+                Swal.fire('Error','Contact to administrator: melgarjonathan03@gmail.com','error');
           }
 
         } catch (error) {
                 dispatch(finishUiLoading());
-                console.log(error)
+                Swal.fire('Error', error, 'error');
         }
 
       
       }
 };
 
-const loadProjects = (projects)=>({
+export const loadProjects = (projects)=>({
         type: types.projectLoaded,
         payload: projects
 });
@@ -79,11 +85,11 @@ export const startProjectEdit = (project)=>{
                                 Swal.fire('Complete','Project Edited','success');
                         }else{
                                 dispatch(finishUiLoading());
-                                Swal.fire('Error',body.msg,'error');
+                                Swal.fire('Error','Contact to administrator: melgarjonathan03@gmail.com','error');
                         }
                 } catch (error) {
                         dispatch(finishUiLoading());
-                        console.log(error);
+                        Swal.fire('Error', error, 'error');
                 }
                 
         }
@@ -107,13 +113,13 @@ export const startProjectDelete = (idProject, idUser)=>{
                         dispatch(projectDeleted(idProject));
                 }else{
                         dispatch(finishUiLoading());
-                        Swal.fire('Error',body.msg,'error');
+                        Swal.fire('Error','Contact to administrator: melgarjonathan03@gmail.com','error');
                 }
 
         }
          catch (error) {
                 dispatch(finishUiLoading());
-                        console.log(error)
+                Swal.fire('Error',error,'error');
                 }
         
         }
@@ -134,12 +140,15 @@ export const startCardTaskCreate= (idProject, task, progress)=>{
                    if(body.ok){
                         dispatch(finishUiLoading());
                         dispatch(cardTaskCreated(idProject,body.taskSaved,progress));
+                   }else{
+                        dispatch(finishUiLoading());
+                        Swal.fire('Error','Contact to administrator: melgarjonathan03@gmail.com','error');
                    }
                 
 
                 } catch (error) {
                         dispatch(finishUiLoading());
-                        console.log(error);
+                        Swal.fire('Error',error,'error');
                 }
         }
 
@@ -163,11 +172,14 @@ export const startCardTaskEdit = (idProject,task)=>{
                         if(body.ok){
                            dispatch(finishUiLoading());
                            dispatch(cardTaskEdited(idProject, task))
+                        }else{
+                                dispatch(finishUiLoading());
+                                Swal.fire('Error','Contact to administrator: melgarjonathan03@gmail.com','error');
                         }
                         
                 } catch (error) {
                         dispatch(finishUiLoading());
-                        console.log(error)
+                        Swal.fire('Error',error,'error');
                 }
               
         }
@@ -191,11 +203,14 @@ export const startCardTaskDelete = (idTask, progress, task)=>{
                         if(body.ok){
                            dispatch(finishUiLoading());
                            dispatch(cardTaskDeleted(idTask, progress));
+                        }else{
+                                dispatch(finishUiLoading());
+                                Swal.fire('Error','Contact to administrator: melgarjonathan03@gmail.com','error');
                         }
                         
                 } catch (error) {
                         dispatch(finishUiLoading());
-                        console.log(error)
+                        Swal.fire('Error',error,'error');
                 }
         }
 }
@@ -217,11 +232,14 @@ export const startChangeStatusCard = (project,progress, task)=>{
                         if(body.ok){
                            dispatch(finishUiLoading());
                            dispatch(changeStatusCard(project,progress));
+                        }else{
+                                dispatch(finishUiLoading());
+                                Swal.fire('Error','Contact to administrator: melgarjonathan03@gmail.com','error');
                         }
                         
                 } catch (error) {
                         dispatch(finishUiLoading());
-                        console.log(error)
+                        Swal.fire('Error',error,'error');
                 }
 
         }

@@ -37,7 +37,7 @@ export const LandinPageScreen = () => {
                         <div className="row landingPage-aligItems">
                        
                         <div className="col-12 la landingPage-aligItems">
-                            <img src="../Logo-white-transparent.PNG" class="img-fluid landing-img-size-logo" alt="logo">
+                            <img src="../Logo-white-transparent.PNG" className="img-fluid landing-img-size-logo" alt="logo">
                             </img>
                             </div>
                         
@@ -82,7 +82,7 @@ export const LandinPageScreen = () => {
                         
                         <div className="card  col-sm-12 col-md-6 col-lg-4 m-1 mt-3 animate__animated animate__zoomIn" >
                             <img src="../img/landing/gooSesion.png"  style={{width: '300px', height: '170px'}} className="card-img-top" alt="..."/>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <h5 className="card-title">Login with Google</h5>
                                 <p className="card-text">You can do a quick login using your google account your credentials are not stored on our servers to make a secure login.</p>
                                 <div className="landingPage-aligItems">
@@ -95,7 +95,7 @@ export const LandinPageScreen = () => {
 
                         <div className="card  col-sm-12 col-md-6 col-lg-4  m-1 mt-3 animate__animated animate__zoomIn" >
                             <img src="../img/landing/progressBar.jpg" style={{width: '300px', height: '170px'}} className="card-img-top" alt="..."/>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <h5 className="card-title">Percentage Bar</h5>
                                 <p className="card-text">A progress bar will accompany you throughout your projects to remind you how much you have completed.</p>
                                 <div className="landingPage-aligItems">

@@ -14,7 +14,7 @@ export const ProjectManagerScreen = () => {
     const dispatch = useDispatch();
     const {activeProject} = useSelector(state => state.project);
     const {uid} = useSelector(state => state.auth);
-
+    const {loading} = useSelector(state => state.ui);
     
    
     const [valid, setValid] = useState(true);
@@ -27,10 +27,8 @@ export const ProjectManagerScreen = () => {
     
     useEffect(() => {
         localStorage.setItem('activeProject',JSON.stringify(activeProject));
-        return () => {
-           //dispatch(setDesactivateProject())
-        }
-    }, [dispatch]);
+        localStorage.setItem('busqueda',JSON.stringify(false));
+    }, []);
 
     const handleDeleteProject = ()=>{
         dispatch( startProjectDelete(activeProject.id, {user: uid}) )
@@ -85,6 +83,8 @@ export const ProjectManagerScreen = () => {
 
                 <Modal />
 
+              
+
             <div className="title-project">
                 <h2>{activeProject?.projectName}</h2>
                 <div className="project-manager-div-button">
@@ -107,7 +107,12 @@ export const ProjectManagerScreen = () => {
                     <div className="progress-bar progresbar-project-color" role="progressbar" style={{width: `${activeProject?.progress}`}} aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{activeProject?.progress}</div>
                 </div>
             <div className="container">
+
+            
+
             <div className="row project-manager-max-2"  >
+
+            
                
                <div className="col-xs-4 col-md-4 animate__animated animate__zoomIn project-manager-max"> 
                 <div className="card m-2 transparent project-manager-container-task" >
@@ -145,11 +150,20 @@ export const ProjectManagerScreen = () => {
                 </div>
             </div>
 
+           
+
             <div className="col-xs-4 col-md-4 animate__animated animate__zoomIn project-manager-max"> 
                 <div className="card m-2 transparent project-manager-container-task" >
-                    <div className="card-body ">
-                        <h5 className="card-title title-white">Doing</h5>
-                        
+                    <div className="card-body " style={{position:"relative"}} >
+                    {(loading) && (<div><div className="spinner-border text-info profile-spiner" role="status">
+                                        <span className="visually-hidden"></span>
+                                    </div>
+                                    </div>)
+                
+                                    }
+                        <h5 className="card-title title-white">Doing
+                        </h5>
+
                     {
                         activeProject?.task.map(task2=>{
                             if(task2.status === 'Doing')
@@ -158,7 +172,6 @@ export const ProjectManagerScreen = () => {
                         )
 
                     }
-                        
                       
                     </div>
                 </div>

@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
+import Swal from 'sweetalert2';
+import { sendVerificationEmail } from '../../actions/auth';
 import { setDesactivateProject, startLoadProjects } from '../../actions/project';
 
 import { Modal } from '../ui/Modal';
@@ -16,20 +18,26 @@ export const ProjectsScreen = () => {
     const {projects, activeProject} = useSelector(state => state.project);
     const {loading} = useSelector(state => state.ui);
 
+    
+
     const dispatch = useDispatch();
-    const handleResendEmailVerification =()=>{ //Pendiente de realizar...
-       console.log('Resend');
+    const handleResendEmailVerification =()=>{
+        dispatch(sendVerificationEmail());
+        Swal.fire('Success','success')
    }
 
    useEffect(() => {
         dispatch(startLoadProjects(uid));
         dispatch(setDesactivateProject());
         localStorage.setItem('activeProject',JSON.stringify(null));
+        localStorage.setItem('busqueda',JSON.stringify(true));
 
     }, [dispatch,uid])
 
      
+    
 
+   
 
     return (
         <div className="projects-background">
@@ -55,8 +63,8 @@ export const ProjectsScreen = () => {
 
             <div className="row cards-screen-center ">
 
-            { (loading) && (<div class="spinner-border text-info profile-spiner" role="status">
-                    <span class="visually-hidden"></span>
+            { (loading) && (<div className="spinner-border text-info profile-spiner" role="status">
+                    <span className="visually-hidden"></span>
                 </div>)
                 
             }
@@ -84,8 +92,21 @@ export const ProjectsScreen = () => {
                         
 
                 }
+
+            
                 
             </div>
+
+            {
+                (projects?.length === 0 && loading === false)?(<div style={{width:'100%', display:'flex', justifyContent:'flex-end'}}><div className="project-screen-alert alert alert-info alert-dismissible fade show" role="alert">
+                                                <strong> Hi!</strong> We have noticed that you do not have a project created yet, 
+                                                click on the button to create a new project and start! <span><button type="button" className="project-screen-btn-alert btn-close fas fa-window-close" data-bs-dismiss="alert" aria-label="Close"></button></span>
+                
+                                                </div>
+                                            </div>)
+                    :('')
+            }
+
         </div>  
     )
 }

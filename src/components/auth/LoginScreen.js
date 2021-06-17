@@ -10,11 +10,12 @@ import { useForm } from '../../hooks/useForm';
 export const LoginScreen = () => {
     const {loading} = useSelector(state => state.ui);
     const [validation, setvalidation] = useState({valid:true,msg:''});
+    const [show, setShow] = useState(false);
     
     const dispatch = useDispatch();
     const [formValues, handleInputChange] = useForm({
-        email: 'melgarjonathan03@gmail.com',
-        password: '123456'
+        email: '',
+        password: ''
     })
 
     const {email, password} = formValues; 
@@ -55,6 +56,15 @@ export const LoginScreen = () => {
     }
 
 
+    const handleShoeHidePass = ()=>{
+        if(show){
+            setShow(false);
+        }else{
+            setShow(true);
+        }
+    }
+
+
 
     return (
         <div className="auth__main">
@@ -77,12 +87,17 @@ export const LoginScreen = () => {
 
                 <input
                 className=" auth__input auth__input-text"
-                type="password"
+                type={`${(show)?'text':'password'}`}
                 name="password"
                 placeholder="Password"
                 value={password}
                 onChange={handleInputChange}
                  />
+
+                {(!show)
+                    ?(<button className="far fa-eye fa-xs profile-btn-show-password" type="button" onClick={handleShoeHidePass}></button>)
+                    :(<button className="far fa-eye-slash fa-xs profile-btn-show-password" type="button" onClick={handleShoeHidePass}></button>)
+                }
                  
                  {!(validation.valid) &&(
                     <div className="alert alert-danger" role="alert">

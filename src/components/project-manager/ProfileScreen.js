@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import validator from 'validator';
 import {startUpdateEmail, startUpdateName, startUpdatePassword, startUploadImage } from '../../actions/auth';
@@ -13,8 +13,15 @@ export const ProfileScreen = () => {
     const [editableName, setEditableName] = useState(false);
     const [editableEmail, setEditableEmail] = useState(false);
     const [validation, setValidation] = useState({valid:true, msg:''});
+    const [show, setShow] = useState(false);
 
     const {name, email, password1, password2} = formValues;
+
+    useEffect(() => {
+        localStorage.setItem('busqueda',JSON.stringify(false));
+        
+    }, []);
+
 
     const handleProfileImage = ()=>{
     
@@ -97,12 +104,20 @@ export const ProfileScreen = () => {
             reset();
         }
 
+        const handleShoeHidePass = ()=>{
+            if(show){
+                setShow(false);
+            }else{
+                setShow(true);
+            }
+        }
+
     return (
         <div className="prfile-bg profile-cont1">
             <div className="profile-cont m-3 container animate__animated animate__fadeIn">
            
-           {(loading) && (<div class="spinner-border text-info profile-spiner" role="status">
-                    <span class="visually-hidden"></span>
+           {(loading) && (<div className="spinner-border text-info profile-spiner" role="status">
+                    <span className="visually-hidden"></span>
                 </div>)
                 
             }
@@ -144,14 +159,13 @@ export const ProfileScreen = () => {
                             <button className="btn task-card-btn-width" onClick={handleUpdateName}><span className="fas fa-save task-card-icon-color"></span></button>
                             </>
                             ) 
-                        :(<><label className="">
+                        :(<><label>
                             {name2}
                             <button className="btn task-card-btn-width" onClick={handleName} ><span className="fas fa-edit task-card-icon-color"></span></button>
                         </label>
                          
                          </>
                         )}
-                 
                 </h5>
 
                 <h5>Email:  {(editableEmail)
@@ -181,7 +195,7 @@ export const ProfileScreen = () => {
                         Change Password: 
                         <input 
                                 className="profile__input"
-                            type="password" 
+                            type={`${(show)?'text':'password'}`}  
                             placeholder="New Password" 
                             name="password1" 
                             onChange={handleInputChange}
@@ -190,12 +204,18 @@ export const ProfileScreen = () => {
 
                             <input 
                                 className="profile__input"
-                            type="password" 
+                            type={`${(show)?'text':'password'}`} 
                             placeholder="Confirm Password" 
                             name="password2" 
                             onChange={handleInputChange}
                             value={password2}
                             />
+
+                            {(!show)
+                                ?(<button className="far fa-eye fa-xs profile-btn-show-password" onClick={handleShoeHidePass}></button>)
+                                :(<button className="far fa-eye-slash fa-xs profile-btn-show-password" onClick={handleShoeHidePass}></button>)
+                            }
+                            
 
                             <button className="btn btn-info mb-2" onClick={handleUpdatePassword}>Change and Save</button>
                 </h4>

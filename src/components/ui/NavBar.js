@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { startlogOut } from '../../actions/auth';
+import { loadProjects, startLoadProjects } from '../../actions/project';
+import { useForm } from '../../hooks/useForm';
 
 
 
@@ -9,12 +11,30 @@ import { startlogOut } from '../../actions/auth';
 export const NavBar = () => {
 
    const dispatch = useDispatch();
-   const {name, photoURL} = useSelector(state => state.auth)
+   const {name, photoURL, uid} = useSelector(state => state.auth);
+   const {projects} = useSelector(state => state.project)
 
-
+    const [formValues, handleInputChange, reset] = useForm({search:''})
+    const {search} = formValues;
     const handleLogout = ()=>{
          dispatch(startlogOut());   
         }
+    
+
+    const handleSearch = async()=>{
+        if(search === ''){
+        dispatch(startLoadProjects(uid))
+       }else{
+       
+        const searchLW = search.toLocaleLowerCase();
+        const projectFiltered = projects?.filter(p => p.projectName.toLocaleLowerCase().includes(searchLW));
+        
+
+           dispatch(loadProjects(projectFiltered));
+       } 
+    }
+
+    const busqueda = localStorage.getItem('busqueda');
 
     return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-background">
@@ -40,13 +60,16 @@ export const NavBar = () => {
       </ul>
     </div>
     <form className="d-flex  navbar-form">
-                <input className="form-control mt-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-outline-info ml-2" type="submit">
+                {(busqueda !== 'false')
+                ?(<><input className="form-control mt-2" type="search" name="search" value={search} onChange={handleInputChange} placeholder="Search" aria-label="Search"/>
+                <button className="btn btn-outline-info ml-2" onClick={handleSearch} type="button">
                     
                     <i className="fas fa-search"></i>
                     
-                </button>
-
+                </button></>)
+                :('')
+                }
+                
                 <div className=" dropdown nav-item">
                     <a className="dropdown-toggle nav-link navbar-user-name navbar-hover" href="#" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                        

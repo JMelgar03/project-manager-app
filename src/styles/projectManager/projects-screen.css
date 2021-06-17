@@ -108,3 +108,12 @@
 .resend-email{
     cursor: pointer;
 }
+
+.project-screen-btn-alert{
+    background-color: rgba(red, green, blue, 0.05);
+    border: none;
+}
+
+.project-screen-alert{
+    width: 50%;
+}

@@ -11,7 +11,7 @@
     border-style: solid;
     border-color: rgb(136, 135, 135);
     height: 550px;
-    width: 400px;
+    width: 420px;
     background-color:rgb(210, 214, 216); 
 }
 
@@ -63,5 +63,16 @@
 
 .profile-title{
     margin-top:25px;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
+}
+
+.profile-btn-show-password{
+    background: none;
+    border: none;
+}
+
+.profile-btn-show-password:focus-within{
+    background: none;
+    border: none;
+    outline: none;
 }

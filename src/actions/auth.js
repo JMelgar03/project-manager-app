@@ -132,10 +132,17 @@ export const startUpdatePassword = (password)=>{
 
 export const sendVerificationEmail = ()=>{
   return async(dispatch)=>{
-    dispatch(startUiLoading());
+    try {
+      dispatch(startUiLoading());
     await firebase.auth().currentUser.sendEmailVerification();
 
-  dispatch(finishUiLoading());
+    dispatch(finishUiLoading());
+    } catch (error) {
+      dispatch(finishUiLoading());
+
+      Swal.fire('Error', error.message, 'error');
+    }
+    
   }
 }
 
@@ -159,7 +166,7 @@ export const startlogOut = ()=>{
       dispatch(projectLogOut())      
     )
     .catch(e=>{
-      console.log(e)
+      Swal.fire('Error', e.message, 'error');
     })
 
   }
