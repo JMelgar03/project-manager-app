@@ -49,7 +49,7 @@ export const ModalPassword = () => {
              
             </div>
             <div className="modal-body">
-              <input type="text" className="auth__input auth__input-text" placeholder="Enter your account email." onChange={handleInputChange}  name="email" value={email}/>
+              <input type="text" className="profile__input" placeholder="Enter your account email." onChange={handleInputChange}  name="email" value={email}/>
 
               {!(validation.valid) &&(
                 <div className="alert alert-danger" role="alert">
