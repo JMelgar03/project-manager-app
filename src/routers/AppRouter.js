@@ -3,6 +3,7 @@ import {firebase} from '../firebase/firebase-config';
 import {
     BrowserRouter as Router,
     Switch,
+    HashRouter,
     Redirect
   } from "react-router-dom";
 
@@ -61,7 +62,7 @@ export const AppRouter = () => {
 
     
     return (
-        <Router>
+        <HashRouter>
            <Switch>
                <PublicRoute isLogged={isLoggedIn}  path="/auth" component={AuthRouter} />
                
@@ -70,6 +71,6 @@ export const AppRouter = () => {
 
                <Redirect to="/auth/landingPage" />
            </Switch>
-        </Router>
+        </HashRouter>
     )
 }
