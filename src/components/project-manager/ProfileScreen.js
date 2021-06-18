@@ -118,7 +118,7 @@ export const ProfileScreen = () => {
 
     return (
         <div className="prfile-bg profile-cont1">
-            <div className="profile-cont m-3 container animate__animated animate__fadeIn">
+            <div className="profile-cont mt-2 m-3 container animate__animated animate__fadeIn">
            
            {(loading) && (<div className="spinner-border text-info profile-spiner" role="status">
                     <span className="visually-hidden"></span>
@@ -221,7 +221,7 @@ export const ProfileScreen = () => {
                             }
                             
 
-                            <button className="btn btn-info mb-2" onClick={handleUpdatePassword}>Change and Save</button>
+                            <button className="btn btn-info mb-2" onClick={handleUpdatePassword}>Change Password</button>
                 </h4>
 
              </div>

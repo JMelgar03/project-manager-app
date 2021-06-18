@@ -62,7 +62,7 @@ export const NavBar = () => {
     <form className="d-flex  navbar-form">
                 {(busqueda !== 'false')
                 ?(<><input className="form-control mt-2" type="search" name="search" value={search} onChange={handleInputChange} placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-outline-info ml-2" onClick={handleSearch} type="button">
+                <button className="btn btn-outline-info ml-2 mr-2" onClick={handleSearch} type="button">
                     
                     <i className="fas fa-search"></i>
                     
@@ -70,7 +70,7 @@ export const NavBar = () => {
                 :('')
                 }
                 
-                <div className=" dropdown nav-item">
+                <div className="dropdown nav-item" style={{backgroundColor:'none', border:'none'}}>
                     <a className="dropdown-toggle nav-link navbar-user-name navbar-hover" href="#" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                        
                        { (photoURL !== null)?(<><img src={photoURL} className="navbar-image-user" /> {name}</>)

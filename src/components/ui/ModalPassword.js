@@ -60,7 +60,7 @@ export const ModalPassword = () => {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={handleReset}>Close</button>
-              <button type="button" className="btn btn-info" onClick={handleResetPassword}>Save changes</button>
+              <button type="button" className="btn btn-info" onClick={handleResetPassword}>Reset Password</button>
             </div>
           </div>
         </div>

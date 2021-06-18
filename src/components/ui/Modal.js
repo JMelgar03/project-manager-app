@@ -14,17 +14,23 @@ export const Modal = () => {
        
     const {uid} = useSelector(state => state.auth);
        
+    
         if(activeProject !== null){
-            initialStateForm  = activeProject;   
+            initialStateForm  = {...activeProject,
+                startDate:moment(activeProject?.startDate).format('YYYY-MM-DD'),
+                endDate:moment(activeProject?.endDate).format('YYYY-MM-DD')
+            };   
            }else{
+               const date = moment().add(1, 'days')
             initialStateForm = {
                 projectName:'',
                 description:'',
-                startDate:'',
-                endDate:''
+                startDate:moment().format('YYYY-MM-DD'),
+                endDate:moment(date).format('YYYY-MM-DD')
             }  
            }
            
+
     
     
     const [formValues, handleInputChange, reset] = useForm(initialStateForm);
@@ -72,7 +78,6 @@ export const Modal = () => {
                             imgBackground: state.url,
                             user: activeProject.user,
                             task: activeProject.task,
-                            progress:activeProject.progress
                         }));
                         document.getElementById('btnClose').click();
                         
@@ -89,7 +94,7 @@ export const Modal = () => {
        const momentStart = moment(startDate);
        const momentFinish = moment(endDate);
 
-      
+       console.log(momentStart._i)
 
         if(projectName.trim().length === 0){
             setvalidation({
@@ -107,7 +112,15 @@ export const Modal = () => {
 
             return false;
 
-        }else if(state.url === ''){
+        }else if( !momentStart._i || !momentFinish._i){
+            setvalidation({
+                valid:false,
+                msg:'Start Date and Finish Date are required'
+            });
+            return false;
+        }
+        
+        else if(state.url === ''){
             setvalidation({
                 valid:false,
                 msg:'Please select a image'
