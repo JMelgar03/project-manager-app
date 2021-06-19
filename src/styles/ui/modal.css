@@ -34,7 +34,7 @@
 
 .modal-container-backg-task{
     height:150px;
-    width:450px ;
+    width:100% ;
     overflow-y: auto;
 }
 
