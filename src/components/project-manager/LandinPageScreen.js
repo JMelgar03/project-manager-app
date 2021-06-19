@@ -76,11 +76,12 @@ export const LandinPageScreen = () => {
                         
                     </div>
                   
-
+                   
                     <div id="scrollspyHeading2" className="landingPage-aligItems row pt-5 pb-5">
-                        <h2 className="col-12 pt-5 pb-5 animate__animated animate__fadeIn" >Other Functions:</h2>
-                        
-                        <div className="card  col-sm-12 col-md-6 col-lg-4 m-1 mt-3 animate__animated animate__zoomIn" >
+                        <h2 className="col-12 pt-5 pb-5 animate__animated animate__fadeIn landingPage-aligItems" >Other Functions:</h2>
+
+                       
+                        <div className="card  col-sm-12 col-md-6 col-lg-4 m-1 mt-3 animate__animated animate__zoomIn ml-4" >
                             <img src="../img/landing/gooSesion.png"  style={{width: '300px', height: '170px'}} className="card-img-top" alt="..."/>
                             <div className="card-body">
                                 <h5 className="card-title">Login with Google</h5>
@@ -92,8 +93,10 @@ export const LandinPageScreen = () => {
                                  </div>
                             </div>
                         </div>
+                   
+                    
 
-                        <div className="card  col-sm-12 col-md-6 col-lg-4  m-1 mt-3 animate__animated animate__zoomIn" >
+                        <div className="card  col-sm-12 col-md-6 col-lg-4  m-1 mt-3 animate__animated animate__zoomIn ml-4" >
                             <img src="../img/landing/progressBar.jpg" style={{width: '300px', height: '170px'}} className="card-img-top" alt="..."/>
                             <div className="card-body">
                                 <h5 className="card-title">Percentage Bar</h5>

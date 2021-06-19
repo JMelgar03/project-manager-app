@@ -136,7 +136,7 @@ export const startResetPassword = (email)=>{
 
     auth.sendPasswordResetEmail(email)
     .then(function(){
-      Swal.fire('Password Reset','Check your email.','success')
+      Swal.fire('Email Sent','Check your email to finish resetting your password.','success')
     })
     .catch(e=>{
       Swal.fire('Error',e.message,'error')

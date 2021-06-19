@@ -70,8 +70,8 @@ export const NavBar = () => {
                 :('')
                 }
                 
-                <div className="dropdown nav-item" style={{backgroundColor:'none', border:'none'}}>
-                    <a className="dropdown-toggle nav-link navbar-user-name navbar-hover" href="#" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                <div className="dropdown nav-item" style={{backgroundColor:'none', border:'none', paddingTop:'5px'}}>
+                    <a className="dropdown-toggle nav-link navbar-user-name navbar-hover" style={{backgroundColor:'none', border:'none'}} href="#" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                        
                        { (photoURL !== null)?(<><img src={photoURL} className="navbar-image-user" /> {name}</>)
                         :(<><span className="fas fa-user"> </span> {name}</>)

@@ -31,3 +31,27 @@
 .modal-textarea{
     height: 25px;
 }
+
+.modal-container-backg-task{
+    height:150px;
+    width:450px ;
+    overflow-y: auto;
+}
+
+.modal-container-backg-task::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+
+.modal-container-backg-task::-webkit-scrollbar-thumb {
+    background-color: rgba(187, 187, 187, 0.2);
+    border-radius: 20px;
+    border: 1px solid #f1f2f3;
+}
+
+.modal-container-backg-task::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.modal-container-backg-task::-webkit-scrollbar:horizontal {
+    height: 8px;
+}

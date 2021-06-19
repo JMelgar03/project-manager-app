@@ -191,7 +191,7 @@ export const Modal = () => {
                 </label>
                 </form>
 
-                <div className="modal-container-image">
+                <div className="modal-container-image modal-container-backg-task">
                     <div className="row">
                         <div className="col-3 image-focus" onClick={()=>{handleImage('../img/fondo1.jpg')}} >
                             <img src="../img/fondo1.jpg" className="img-fluid image-table-responsive " alt="..."/>
@@ -215,6 +215,33 @@ export const Modal = () => {
 
                         <div className="col-3" onClick={()=>{handleImage('../img/fondo6.jpg')}}>
                             <img src="../img/fondo6.jpg" className="img-fluid image-table-responsive" alt="..."/>
+                        </div>
+                        <div className="col-3" onClick={()=>{handleImage('../img/fondo7.jpg')}}>
+                            <img src="../img/fondo7.jpg" className="img-fluid image-table-responsive" alt="..."/>
+                        </div>
+                        <div className="col-3" onClick={()=>{handleImage('../img/fondo8.jpg')}}>
+                            <img src="../img/fondo8.jpg" className="img-fluid image-table-responsive" alt="..."/>
+                        </div>
+                        <div className="col-3" onClick={()=>{handleImage('../img/fondo9.jpg')}}>
+                            <img src="../img/fondo9.jpg" className="img-fluid image-table-responsive" alt="..."/>
+                        </div>
+                        <div className="col-3" onClick={()=>{handleImage('../img/fondo10.jpg')}}>
+                            <img src="../img/fondo10.jpg" className="img-fluid image-table-responsive" alt="..."/>
+                        </div>
+                        <div className="col-3" onClick={()=>{handleImage('../img/fondo11.jpg')}}>
+                            <img src="../img/fondo11.jpg" className="img-fluid image-table-responsive" alt="..."/>
+                        </div>
+                        <div className="col-3" onClick={()=>{handleImage('../img/fondo12.jpg')}}>
+                            <img src="../img/fondo12.jpg" className="img-fluid image-table-responsive" alt="..."/>
+                        </div>
+                        <div className="col-3" onClick={()=>{handleImage('../img/fondo13.jpg')}}>
+                            <img src="../img/fondo13.jpg" className="img-fluid image-table-responsive" alt="..."/>
+                        </div>
+                        <div className="col-3" onClick={()=>{handleImage('../img/fondo14.jpg')}}>
+                            <img src="../img/fondo14.jpg" className="img-fluid image-table-responsive" alt="..."/>
+                        </div>
+                        <div className="col-3" onClick={()=>{handleImage('../img/fondo15.jpg')}}>
+                            <img src="../img/fondo15.jpg" className="img-fluid image-table-responsive" alt="..."/>
                         </div>
                      </div>
                 </div>
